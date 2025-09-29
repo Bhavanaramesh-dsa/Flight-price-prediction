@@ -1,0 +1,9 @@
+fastapi
+uvicorn[standard]
+python-dotenv
+databases[postgresql]
+gunicorn
+sqlmodel
+pydantic
+sqlalchemy
+timescaledb

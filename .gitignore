@@ -1,0 +1,9 @@
+# Virtual environment
+.venv/
+
+# Airflow runtime files
+airflow.db
+airflow.cfg
+logs/
+airflow-webserver.pid
+

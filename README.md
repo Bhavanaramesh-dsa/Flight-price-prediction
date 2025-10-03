@@ -13,3 +13,4 @@ Ever wondered, “Is this flight price fair? Will it go up or down?” This proj
 
 4. Open docs:
    http://127.0.0.1:8000/docs
+

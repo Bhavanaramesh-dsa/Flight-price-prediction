@@ -1,3 +1,4 @@
+#api
 fastapi
 uvicorn[standard]
 python-dotenv
@@ -7,3 +8,9 @@ sqlmodel
 pydantic
 sqlalchemy
 timescaledb
+
+#airflow
+apache-airflow==2.9.3
+great_expectations
+psycopg2-binary
+requests

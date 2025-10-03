@@ -7,17 +7,29 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
 
+# app/helper/config.py
+from pydantic import BaseSettings
+
+
 class Settings(BaseSettings):
-    DATABASE_URL: str
-    MODEL_VERSION: str = "unknown"
-    APP_HOST: str = "0.0.0.0"
-    APP_PORT: int = 8000
+    DB_USER: str = "postgres"
+    DB_PASSWORD: str = "Password"
+    DB_HOST: str = "localhost"
+    DB_PORT: str = "5432"
+    DB_NAME: str = "flightdb"
+
+    @property
+    def DATABASE_URL(self) -> str:
+        return (
+            f"postgresql+psycopg2://{self.DB_USER}:{self.DB_PASSWORD}"
+            f"@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
+        )
 
     class Config:
-        env_file = ".env"
-        env_file_encoding = "utf-8"
+        env_file = ".env"   # tells Pydantic to read from your .env
 
 
+# this line will now succeed
 settings = Settings()
 
 engine = create_engine(settings.DATABASE_URL, pool_pre_ping=True)

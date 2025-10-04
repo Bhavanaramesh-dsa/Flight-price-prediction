@@ -1,9 +1,27 @@
-# Virtual environment
-.venv/
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
 
-# Airflow runtime files
-airflow.db
-airflow.cfg
-logs/
-airflow-webserver.pid
+# Environment files
+.env
+.env.local
 
+# Test files
+test_*.py
+check_*.py
+create_*.py
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Database
+*.db
+*.sqlite3

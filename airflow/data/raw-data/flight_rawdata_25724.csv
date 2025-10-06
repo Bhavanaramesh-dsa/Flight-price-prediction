@@ -1,0 +1,11 @@
+Unnamed: 0,airline,flight,source_city,departure_time,stops,arrival_time,destination_city,class,duration,days_left,price
+121334,Vistara,UK-774,Kolkata,Night,one,Morning,Delhi,Economy,14.42,13,13524
+295696,Vistara,UK-834,Chennai,Evening,one,Morning,Bangalore,Business,15.58,45,60260
+49410,Vistara,UK-863,Mumbai,Morning,one,Night,Delhi,Economy,13.33,33,6122
+209304,Vistara,UK-941,Delhi,Evening,zero,Evening,Mumbai,Business,2.33,26,29992
+125276,GO_FIRST,G8-519,Kolkata,Evening,one,Late_Night,Delhi,Economy,8.5,36,6324
+269225,Vistara,UK-772,Kolkata,Morning,one,Night,Bangalore,Business,12.42,33,52287
+121389,AirAsia,I5-991,Kolkata,Evening,one,Late_Night,Delhi,Economy,11.08,14,5953
+273033,Air_India,AI-729,Kolkata,Morning,two_or_more,Night,Chennai,Business,13.75,11,70220
+275463,Vistara,UK-876,Hyderabad,Night,one,Morning,Delhi,Business,13.42,15,57990
+25916,Indigo,6E-221,Delhi,Night,one,Late_Night,Kolkata,Economy,6.33,34,5027

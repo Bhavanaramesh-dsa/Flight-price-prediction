@@ -1,0 +1,11 @@
+Unnamed: 0,airline,flight,source_city,departure_time,stops,arrival_time,destination_city,class,duration,days_left,price
+21600,SpiceJet,SG-8253,Delhi,Night,zero,Night,Kolkata,Economy,2.17,11,5954
+71488,Indigo,6E-5217,Mumbai,Evening,zero,Evening,Hyderabad,Economy,1.33,11,4263
+87841,Air_India,AI-9547,Bangalore,Evening,one,Evening,Delhi,Economy,21.75,20,8907
+298871,Vistara,UK-828,Chennai,Early_Morning,one,Evening,Hyderabad,Business,10.0,22,81585
+199830,Indigo,6E-917,Chennai,Afternoon,one,Night,Kolkata,Economy,6.83,22,5042
+205703,Vistara,UK-828,Chennai,Early_Morning,two_or_more,Afternoon,Hyderabad,Economy,5.25,38,6032
+23045,Indigo,6E-6261,Delhi,Evening,one,Late_Night,Kolkata,Economy,7.0,18,5955
+172620,Indigo,6E-2349,Hyderabad,Night,one,Early_Morning,Kolkata,Economy,6.33,19,5293
+79169,Vistara,UK-950,Mumbai,Night,one,Evening,Chennai,Economy,18.42,15,12468
+173317,GO_FIRST,G8-123,Hyderabad,Early_Morning,zero,Early_Morning,Kolkata,Economy,1.83,25,2393

@@ -1,0 +1,2 @@
+error
+"HTTPConnectionPool(host='host.docker.internal', port=8000): Max retries exceeded with url: /predict (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0xffff8b08d3a0>: Failed to establish a new connection: [Errno 111] Connection refused'))"

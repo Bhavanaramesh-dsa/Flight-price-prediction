@@ -1,0 +1,11 @@
+Unnamed: 0,airline,flight,source_city,departure_time,stops,arrival_time,destination_city,class,duration,days_left,price
+32368,Indigo,6E-2843,Delhi,Afternoon,one,Night,Hyderabad,Economy,5.58,29,4393
+70757,Air_India,AI-442,Mumbai,Afternoon,one,Morning,Hyderabad,Economy,20.33,5,7584
+205551,AirAsia,I5-517,Chennai,Morning,zero,Morning,Hyderabad,Economy,1.17,37,1105
+203480,Vistara,UK-826,Chennai,Afternoon,one,Night,Hyderabad,Economy,8.42,12,8391
+149314,Indigo,6E-725,Kolkata,Evening,one,Early_Morning,Chennai,Economy,10.0,16,6977
+193704,GO_FIRST,G8-911,Chennai,Early_Morning,one,Night,Mumbai,Economy,14.67,48,4554
+186544,Air_India,AI-672,Chennai,Afternoon,one,Night,Delhi,Economy,5.5,43,3916
+177770,Air_India,AI-9893,Hyderabad,Early_Morning,zero,Early_Morning,Chennai,Economy,1.5,20,1776
+151193,Air_India,AI-765,Kolkata,Afternoon,zero,Evening,Chennai,Economy,2.42,35,2966
+208074,Air_India,AI-865,Delhi,Morning,zero,Afternoon,Mumbai,Business,2.17,15,22152

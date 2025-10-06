@@ -1,0 +1,11 @@
+Unnamed: 0,airline,flight,source_city,departure_time,stops,arrival_time,destination_city,class,duration,days_left,price
+291601,Air_India,AI-538,Chennai,Night,one,Evening,Mumbai,Business,23.67,21,61649
+86396,AirAsia,I5-992,Bangalore,Night,one,Morning,Delhi,Economy,10.92,14,7484
+187098,Indigo,6E-6215,Chennai,Evening,one,Late_Night,Delhi,Economy,5.92,47,2051
+20555,Indigo,6E-5001,Delhi,Early_Morning,one,Afternoon,Kolkata,Economy,8.33,4,10349
+275702,Vistara,UK-878,Hyderabad,Afternoon,one,Evening,Delhi,Business,5.17,20,51875
+235581,Vistara,UK-988,Mumbai,Night,one,Morning,Kolkata,Business,11.67,19,88813
+68132,SpiceJet,SG-611,Mumbai,Early_Morning,one,Morning,Kolkata,Economy,26.75,38,4939
+72089,Vistara,UK-875,Mumbai,Evening,zero,Night,Hyderabad,Economy,1.58,15,4473
+264069,Air_India,AI-763,Kolkata,Early_Morning,one,Night,Mumbai,Business,14.25,4,50271
+89587,GO_FIRST,G8-241,Bangalore,Evening,one,Late_Night,Delhi,Economy,7.75,29,3466

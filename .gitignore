@@ -1,6 +1,6 @@
 # Virtual environment
 .venv/
-
+.py_env/
 # Airflow runtime files
 airflow.db
 airflow.cfg

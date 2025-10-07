@@ -15,8 +15,8 @@ API_SERVICE_URL = 'http://fastapi:8000/predict'
 DB_HOST = 'postgres'
 DB_PORT = '5432'
 DB_NAME = 'predictions'
-DB_USER = 'airflow'
-DB_PASSWORD = 'airflow'
+DB_USER = 'postgres'
+DB_PASSWORD = 'Password'
 
 # DB Connection
 def get_db_connection():
@@ -103,17 +103,40 @@ def PredictionPipeline():
                     timeout=60
                 )
                 response.raise_for_status()
-                print(f"Prediction successful for {file_name}")
+                result = response.json()
 
-                # Store full file in DB
+                # Extract predictions from API response
+                predictions = result.get("predictions", [])
+                print(f"Prediction successful for {file_name} with {len(predictions)} records")
+
+                # --- Create tables and store both input and predictions ---
                 conn = get_db_connection()
                 with conn.cursor() as cur:
+                    # Ensure predictions table exists
                     cur.execute("""
-                        INSERT INTO prediction_payloads (filename, full_file)
-                        VALUES (%s, %s);
-                    """, (file_name, json.dumps(data_for_api)))
-                conn.commit()
-                conn.close()
+                        CREATE TABLE IF NOT EXISTS predictions (
+                            id SERIAL PRIMARY KEY,
+                            filename TEXT,
+                            predictions JSONB,
+                            created_at TIMESTAMPTZ DEFAULT CURRENT_TIMESTAMP
+                        );
+                    """)
+
+                        # Insert predictions from FastAPI
+                    cur.execute("""
+                            INSERT INTO predictions (filename, predictions)
+                            VALUES (%s, %s);
+                        """, (file_name, json.dumps(predictions)))
+
+                        # Keep your original logic for payload tracking
+                    cur.execute("""
+                            INSERT INTO prediction_payloads (filename, full_file)
+                            VALUES (%s, %s);
+                        """, (file_name, json.dumps(data_for_api)))
+
+                    conn.commit()
+                    conn.close()
+
 
                 processed.append(file_name)
 

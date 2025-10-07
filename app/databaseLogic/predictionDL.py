@@ -1,6 +1,6 @@
 
 from sqlmodel import Session
-from app.helper.config import Prediction
+from helper.config import Prediction
 
 
 from sqlalchemy.orm import Session

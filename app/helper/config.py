@@ -14,9 +14,9 @@ from pydantic import BaseSettings
 class Settings(BaseSettings):
     DB_USER: str = "postgres"
     DB_PASSWORD: str = "Password"
-    DB_HOST: str = "localhost"
+    DB_HOST: str = "postgres"
     DB_PORT: str = "5432"
-    DB_NAME: str = "flightdb"
+    DB_NAME: str = "predictions"
 
     @property
     def DATABASE_URL(self) -> str:
@@ -38,11 +38,10 @@ Base = declarative_base()
 
 
 class Prediction(Base):
-    __tablename__ = "flights"
+    __tablename__ = "predictions"
 
     # Use serial_number if that's what your DB schema uses
     serial_number = Column(Integer, primary_key=True, index=True)
-
     airline = Column(Text, nullable=False)
     source = Column(Text, nullable=False)
     destination = Column(Text, nullable=False)

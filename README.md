@@ -1,3 +1,4 @@
+-- Active: 1759519351339@@127.0.0.1@5432@predictions
 # FlightPricePrediction
 Ever wondered, “Is this flight price fair? Will it go up or down?” This project helps answer that question using data and machine learning.
 

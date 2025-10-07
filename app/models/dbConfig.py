@@ -1,6 +1,8 @@
 from sqlalchemy import create_engine, Column, Integer, SmallInteger, Text, DateTime, Numeric, MetaData
 from sqlalchemy.orm import declarative_base, sessionmaker
-from app.helper.config import settings
+from helper.config import settings
+
+
 
 # PostgreSQL connection
 engine = create_engine(settings.DATABASE_URL, pool_pre_ping=True)
@@ -16,7 +18,7 @@ def create_tables():
 
 
 class Prediction(Base):
-    __tablename__ = "flights"
+    __tablename__ = "predictions"
 
     id = Column("serial_number", Integer, primary_key=True, index=True)
     airline = Column(Text)

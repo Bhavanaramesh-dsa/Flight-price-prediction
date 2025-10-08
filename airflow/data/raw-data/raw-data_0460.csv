@@ -1,0 +1,12 @@
+Airline,Date_of_Journey,Source,Destination,Route,Dep_Time,Arrival_Time,Duration,Total_Stops,Additional_Info,Price
+Air India,18/05/2019,Delhi,Cochin,DEL → BOM → COK,10:00,07:40 19 May,21h 40m,1 stop,No info,8372
+Air India,1/04/2019,Kolkata,Banglore,CCU → GAU → IMF → DEL → BLR,16:45,23:15 02 Apr,30h 30m,3 stops,No info,8607
+Multiple carriers,24/06/2019,Delhi,Cochin,DEL → BOM → COK,10:00,21:00,11h,1 stop,No info,13587
+Jet Airways,18/05/2019,Delhi,Cochin,DEL → BOM → COK,20:55,04:25 19 May,7h 30m,1 stop,No info,15554
+Jet Airways,21/05/2019,Kolkata,Banglore,CCU → BOM → BLR,21:10,19:50 22 May,22h 40m,1 stop,In-flight meal not included,10844
+IndiGo,24/05/2019,Mumbai,Hyderabad,BOM → HYD,12:00,13:30,1h 30m,non-stop,No info,4392
+Air India,27/05/2019,Banglore,Delhi,BLR → DEL,17:00,19:45,2h 45m,non-stop,No info,6961
+Air India,18/05/2019,Delhi,Cochin,DEL → BLR → COK,09:45,23:00,13h 15m,1 stop,No info,8907
+IndiGo,15/06/2019,Delhi,Cochin,DEL → HYD → COK,08:35,22:30,13h 55m,1 stop,No info,6442
+Jet Airways,15/05/2019,Kolkata,Banglore,CCU → BOM → BLR,14:05,23:35,9h 30m,1 stop,In-flight meal not included,8586
+Air India,15/05/2019,Delhi,Cochin,DEL → JDH → BOM → COK,12:55,19:15 16 May,30h 20m,2 stops,No info,13486

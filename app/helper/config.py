@@ -1,47 +1,56 @@
+import asyncio
+from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine
+from sqlalchemy.orm import sessionmaker, declarative_base
+from sqlalchemy import Column, Integer, Date, DateTime, Numeric, Text, SmallInteger, func
 from pydantic import BaseSettings
-from sqlalchemy import (
-    create_engine, Column, Integer, SmallInteger, Text,
-    Date, DateTime, Numeric, func
-)
-from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker
+from dotenv import load_dotenv
 
 
-# app/helper/config.py
-from pydantic import BaseSettings
+
+# CONFIG & SETTINGS
+
+class config:
+    env_file = ".env"
+
+
+load_dotenv(config.env_file)  
 
 
 class Settings(BaseSettings):
     DB_USER: str = "postgres"
     DB_PASSWORD: str = "Password"
-    DB_HOST: str = "postgres"
+    DB_HOST: str = "localhost"
     DB_PORT: str = "5432"
-    DB_NAME: str = "predictions"
 
     @property
     def DATABASE_URL(self) -> str:
-        return (
-            f"postgresql+psycopg2://{self.DB_USER}:{self.DB_PASSWORD}"
-            f"@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
-        )
-
-    class Config:
-        env_file = ".env"   # tells Pydantic to read from your .env
+        return f"postgresql+asyncpg://{self.DB_USER}:{self.DB_PASSWORD}@{self.DB_HOST}:{self.DB_PORT}/predictions"
 
 
-# this line will now succeed
 settings = Settings()
+print(f"[DEBUG] Loaded DATABASE_URL: {settings.DATABASE_URL}")
 
-engine = create_engine(settings.DATABASE_URL, pool_pre_ping=True)
-SessionLocal = sessionmaker(bind=engine, autoflush=False, autocommit=False)
+
+
+# DATABASE SETUP
+
+engine = create_async_engine(
+    settings.DATABASE_URL,
+    echo=True,
+)
+
+SessionLocal = sessionmaker(bind=engine, class_=AsyncSession, expire_on_commit=False)
 Base = declarative_base()
 
 
+
+# MODEL
+
 class Prediction(Base):
     __tablename__ = "predictions"
+    __table_args__ = {"schema": "public"}
 
-    # Use serial_number if that's what your DB schema uses
-    serial_number = Column(Integer, primary_key=True, index=True)
+    id = Column(Integer, primary_key=True, index=True)
     airline = Column(Text, nullable=False)
     source = Column(Text, nullable=False)
     destination = Column(Text, nullable=False)
@@ -55,10 +64,28 @@ class Prediction(Base):
     created_at = Column(DateTime(timezone=False), server_default=func.now())
 
 
+# ASYNC SESSION GENERATOR
 
-def get_db():
-    db = SessionLocal()
-    try:
-        yield db
-    finally:
-        db.close()
+async def get_db():
+    print("[DEBUG] Entered get_db()")
+    async with SessionLocal() as db:
+        try:
+            print("[DEBUG] Yielding DB session")
+            yield db
+        finally:
+            print("[DEBUG] Closing DB session")
+            await db.close()
+
+
+
+# ASYNC DB CREATION HELPER
+async def init_db():
+    print("[DEBUG] Initializing database...")
+    async with engine.begin() as conn:
+        await conn.run_sync(Base.metadata.create_all)
+    print("[DEBUG] Database initialized successfully ✅")
+
+
+# Run DB creation on import (optional)
+if __name__ == "__main__":
+    asyncio.run(init_db())

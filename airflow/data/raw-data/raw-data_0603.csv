@@ -1,0 +1,12 @@
+Airline,Date_of_Journey,Source,Destination,Route,Dep_Time,Arrival_Time,Duration,Total_Stops,Additional_Info,Price
+Air Asia,12/06/2019,Kolkata,Banglore,CCU → BLR,10:20,12:55,2h 35m,non-stop,No info,3807
+IndiGo,3/06/2019,Delhi,Cochin,DEL → BOM → COK,09:15,21:00,11h 45m,1 stop,No info,6838
+Jet Airways,24/06/2019,Delhi,Cochin,DEL → JAI → BOM → COK,05:30,19:00,13h 30m,2 stops,No info,13014
+IndiGo,12/04/2019,Kolkata,Banglore,CCU → BLR,14:25,16:55,2h 30m,non-stop,No info,5224
+Multiple carriers,6/06/2019,Delhi,Cochin,DEL → BOM → COK,13:00,01:30 07 Jun,12h 30m,1 stop,No info,13377
+GoAir,21/05/2019,Delhi,Cochin,DEL → BOM → COK,07:00,12:55,5h 55m,1 stop,No info,6633
+Air Asia,24/05/2019,Kolkata,Banglore,CCU → DEL → BLR,07:35,23:30,15h 55m,1 stop,No info,5192
+IndiGo,18/04/2019,Banglore,Delhi,BLR → DEL,22:10,01:00 19 Apr,2h 50m,non-stop,No info,4591
+Air India,12/05/2019,Kolkata,Banglore,CCU → BLR,20:45,23:20,2h 35m,non-stop,No info,4880
+Jet Airways,27/04/2019,Banglore,Delhi,BLR → DEL,17:45,20:45,3h,non-stop,No info,7229
+Jet Airways,9/05/2019,Delhi,Cochin,DEL → BOM → COK,19:45,04:25 10 May,8h 40m,1 stop,In-flight meal not included,12373

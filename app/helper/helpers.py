@@ -1,8 +1,8 @@
-from datetime import datetime
 import os
 import pandas as pd
-from catboost import CatBoostRegressor
 import joblib
+from catboost import CatBoostRegressor
+from datetime import datetime
 
 # Load model and columns once when module loads (singleton pattern)
 model_path = os.path.join(os.path.dirname(__file__), '..', 'model', 'catboost_flight_price_model.cbm')
@@ -12,7 +12,6 @@ model = CatBoostRegressor()
 model.load_model(model_path)
 
 model_columns = joblib.load(columns_path)
-
 
 def preprocess_input(input_dict):
  
@@ -119,3 +118,28 @@ def duration_to_minutes(duration: str) -> int:
             total_mins += int(part.replace('m', ''))
     return total_mins
 
+def parse_total_stops(value: str) -> int:
+    """
+    Convert total stops like '1 stop', '2 stops', 'non-stop' → integer safely.
+    """
+    if not value:
+        return 0
+    value = value.strip().lower()
+    if "non" in value:
+        return 0
+    for token in value.split():
+        if token.isdigit():
+            return int(token)
+    return 0
+
+
+# ✅ Helper: convert duration text to minutes
+def duration_to_minutes(duration: str) -> int:
+    total_mins = 0
+    parts = duration.split()
+    for part in parts:
+        if 'h' in part:
+            total_mins += int(part.replace('h', '')) * 60
+        elif 'm' in part:
+            total_mins += int(part.replace('m', ''))
+    return total_mins

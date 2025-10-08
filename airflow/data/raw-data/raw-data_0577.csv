@@ -1,0 +1,12 @@
+Airline,Date_of_Journey,Source,Destination,Route,Dep_Time,Arrival_Time,Duration,Total_Stops,Additional_Info,Price
+SpiceJet,01/03/2019,Banglore,New Delhi,BLR → HYD → DEL,15:35,23:40,8h 5m,1 stop,1 Long layover,7744
+Jet Airways,6/06/2019,Delhi,Cochin,DEL → JAI → BOM → COK,09:40,12:35 07 Jun,26h 55m,2 stops,In-flight meal not included,11733
+Jet Airways,15/06/2019,Delhi,Cochin,DEL → BOM → COK,09:00,04:25 16 Jun,19h 25m,1 stop,In-flight meal not included,10262
+Jet Airways,12/03/2019,Banglore,New Delhi,BLR → BOM → DEL,05:45,12:15,6h 30m,1 stop,No info,17524
+SpiceJet,9/03/2019,Mumbai,Hyderabad,BOM → HYD,22:45,00:10 10 Mar,1h 25m,non-stop,No info,3603
+Multiple carriers,18/05/2019,Delhi,Cochin,DEL → BOM → COK,07:30,19:15,11h 45m,1 stop,No info,7564
+Multiple carriers,9/06/2019,Delhi,Cochin,DEL → BOM → COK,10:20,21:00,10h 40m,1 stop,No info,7005
+IndiGo,3/03/2019,Delhi,Cochin,DEL → BOM → COK,09:10,01:35 04 Mar,16h 25m,1 stop,No info,14871
+Air Asia,18/04/2019,Banglore,Delhi,BLR → DEL,04:55,07:45,2h 50m,non-stop,No info,4282
+Jet Airways,27/05/2019,Delhi,Cochin,DEL → AMD → BOM → COK,23:05,12:35 28 May,13h 30m,2 stops,No info,15129
+Air Asia,24/06/2019,Delhi,Cochin,DEL → BLR → COK,16:45,22:25,5h 40m,1 stop,No info,6752

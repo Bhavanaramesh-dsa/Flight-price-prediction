@@ -1,0 +1,12 @@
+Airline,Date_of_Journey,Source,Destination,Route,Dep_Time,Arrival_Time,Duration,Total_Stops,Additional_Info,Price
+Jet Airways,18/05/2019,Kolkata,Banglore,CCU → BOM → BLR,14:05,10:05 19 May,20h,1 stop,In-flight meal not included,9663
+SpiceJet,3/04/2019,Banglore,Delhi,BLR → DEL,05:55,08:35,2h 40m,non-stop,No info,3971
+IndiGo,15/03/2019,Chennai,Kolkata,MAA → CCU,07:55,10:15,2h 20m,non-stop,No info,6297
+SpiceJet,9/05/2019,Banglore,Delhi,BLR → DEL,05:55,08:35,2h 40m,non-stop,No check-in baggage included,3573
+Jet Airways,21/05/2019,Kolkata,Banglore,CCU → BOM → BLR,14:05,22:35,8h 30m,1 stop,In-flight meal not included,10844
+IndiGo,27/04/2019,Banglore,Delhi,BLR → DEL,06:05,08:50,2h 45m,non-stop,No info,4423
+Jet Airways,06/03/2019,Banglore,New Delhi,BLR → BOM → DEL,14:05,21:20,7h 15m,1 stop,No info,19225
+IndiGo,12/03/2019,Chennai,Kolkata,MAA → CCU,22:05,00:30 13 Mar,2h 25m,non-stop,No info,6297
+SpiceJet,6/03/2019,Kolkata,Banglore,CCU → BLR,22:20,00:40 07 Mar,2h 20m,non-stop,No info,3849
+Multiple carriers,6/03/2019,Delhi,Cochin,DEL → BOM → COK,08:00,15:30,7h 30m,1 stop,No info,15078
+IndiGo,12/05/2019,Kolkata,Banglore,CCU → HYD → BLR,19:20,23:45,4h 25m,1 stop,No info,4205

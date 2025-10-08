@@ -1,0 +1,12 @@
+Airline,Date_of_Journey,Source,Destination,Route,Dep_Time,Arrival_Time,Duration,Total_Stops,Additional_Info,Price
+SpiceJet,27/06/2019,Banglore,Delhi,BLR → DEL,05:55,08:35,2h 40m,non-stop,No info,3625
+GoAir,27/05/2019,Delhi,Cochin,DEL → AMD → COK,07:25,13:35,6h 10m,1 stop,No info,6841
+Jet Airways,24/03/2019,Kolkata,Banglore,CCU → BOM → BLR,16:55,23:25,6h 30m,1 stop,In-flight meal not included,11134
+Jet Airways,6/06/2019,Kolkata,Banglore,CCU → BOM → BLR,18:55,20:45 07 Jun,25h 50m,1 stop,No info,14571
+Air India,01/03/2019,Banglore,New Delhi,BLR → CCU → BBI → HYD → DEL,05:50,12:15 02 Mar,30h 25m,3 stops,No info,12346
+Jet Airways,21/04/2019,Banglore,Delhi,BLR → DEL,17:45,20:45,3h,non-stop,In-flight meal not included,4544
+Jet Airways,9/06/2019,Delhi,Cochin,DEL → NAG → BOM → COK,14:35,04:25 10 Jun,13h 50m,2 stops,No info,13376
+Jet Airways,12/03/2019,Banglore,New Delhi,BLR → BOM → DEL,18:55,12:25 13 Mar,17h 30m,1 stop,In-flight meal not included,11087
+SpiceJet,3/03/2019,Kolkata,Banglore,CCU → BLR,09:00,11:30,2h 30m,non-stop,No info,5515
+IndiGo,27/06/2019,Kolkata,Banglore,CCU → BLR,04:40,07:15,2h 35m,non-stop,No info,4804
+IndiGo,12/06/2019,Chennai,Kolkata,MAA → CCU,13:15,15:35,2h 20m,non-stop,No info,3597

@@ -1,0 +1,11 @@
+Airline,Date_of_Journey,Source,Destination,Route,Dep_Time,Arrival_Time,Duration,Total_Stops,Additional_Info,Price
+Vistara,6/03/2019,Mumbai,Hyderabad,BOM → DEL → HYD,21:55,09:25 07 Mar,11h 30m,1 stop,No info,12395
+Air India,6/05/2019,Kolkata,Banglore,CCU → DEL → BLR,20:30,20:25 07 May,23h 55m,1 stop,No info,10203
+IndiGo,12/05/2019,Mumbai,Hyderabad,BOM → HYD,06:25,07:55,1h 30m,non-stop,No info,4049
+Jet Airways,9/06/2019,Kolkata,Banglore,CCU → DEL → BLR,20:25,18:00 10 Jun,21h 35m,1 stop,No info,13401
+Air India,9/05/2019,Delhi,Cochin,DEL → JAI → BOM → COK,12:00,07:40 10 May,19h 40m,2 stops,No info,9968
+Jet Airways,6/05/2019,Mumbai,Hyderabad,BOM → HYD,10:20,11:50,1h 30m,non-stop,No info,8040
+Multiple carriers,27/03/2019,Delhi,Cochin,DEL → BOM → COK,15:15,01:35 28 Mar,10h 20m,1 stop,No info,6427
+IndiGo,6/05/2019,Chennai,Kolkata,MAA → CCU,22:05,00:25 07 May,2h 20m,non-stop,No info,5277
+Jet Airways,1/04/2019,Mumbai,Hyderabad,BOM → HYD,02:55,04:20,1h 25m,non-stop,In-flight meal not included,2228
+Vistara,24/05/2019,Banglore,Delhi,BLR → DEL,21:00,23:50,2h 50m,non-stop,No info,5613

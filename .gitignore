@@ -4,16 +4,16 @@ venv/
 .py_env/
 py_env
 *.env
+
 # Airflow runtime files
 airflow.db
 airflow.cfg
 logs/
 airflow-webserver.pid
 
-
-
 # Virtual envs
 env/
 venv/
 py_env/
 *.env
+

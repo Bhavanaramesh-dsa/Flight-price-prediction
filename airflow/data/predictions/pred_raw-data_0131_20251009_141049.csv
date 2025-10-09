@@ -1,0 +1,12 @@
+Airline,Date_of_Journey,Source,Destination,route,Dep_Time,Arrival_Time,Duration,Total_Stops,additional_info,price,Predicted_Price
+IndiGo,9/06/2019,Kolkata,Banglore,CCU → BLR,21:25,00:05 10 Jun,2h 40m,non-stop,No info,4804,
+IndiGo,6/06/2019,Delhi,Cochin,DEL → HYD → COK,07:35,12:10,4h 35m,1 stop,No info,5458,5454.395439046462
+Jet Airways,9/06/2019,Banglore,Delhi,BLR → DEL,18:55,22:00,3h 5m,non-stop,In-flight meal not included,7229,7894.9302193967615
+Jet Airways,6/06/2019,Kolkata,Banglore,CCU → BOM → BLR,18:55,10:05 07 Jun,15h 10m,1 stop,No info,14571,
+SpiceJet,9/06/2019,Banglore,Delhi,BLR → DEL,21:10,00:05 10 Jun,2h 55m,non-stop,No check-in baggage included,3919,
+Multiple carriers,9/03/2019,Delhi,Cochin,DEL → HYD → COK,07:05,16:10,9h 5m,1 stop,No info,6916,9762.717518400621
+Jet Airways,27/03/2019,Delhi,Cochin,DEL → BOM → COK,13:00,04:25 28 Mar,15h 25m,1 stop,In-flight meal not included,6960,
+Jet Airways,06/03/2019,Banglore,New Delhi,BLR → MAA → DEL,09:45,14:25,4h 40m,1 stop,No info,16757,16419.119443842603
+IndiGo,6/03/2019,Delhi,Cochin,DEL → BOM → COK,16:00,01:35 07 Mar,9h 35m,1 stop,No info,14871,
+IndiGo,12/06/2019,Delhi,Cochin,DEL → HYD → COK,07:35,12:10,4h 35m,1 stop,No info,5054,5384.443308520214
+Air India,3/06/2019,Delhi,Cochin,DEL → LKO → BOM → COK,12:20,19:15 04 Jun,30h 55m,2 stops,No info,12488,

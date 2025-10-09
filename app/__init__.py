@@ -1,8 +1,16 @@
-from fastapi import FastAPI
+# app/__init__.py
 
+import os
 
-app = FastAPI(title="Flight Price Prediction API")
+# Only initialize FastAPI if running inside the FastAPI container
+# (Airflow just needs to import database logic)
+if os.getenv("FASTAPI_MODE", "false").lower() == "true":
+    from fastapi import FastAPI
+    from controllers import predictionController
 
-# Import routes (so FastAPI knows them)
+    app = FastAPI(title="Flight Price Prediction API")
 
-from controllers import predictionController
+    # Register routes
+    app.include_router(predictionController.router)
+else:
+    app = None  # No FastAPI needed for Airflow

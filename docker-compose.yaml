@@ -18,7 +18,9 @@ x-airflow-common:
     AIRFLOW__API__AUTH_BACKENDS: 'airflow.api.auth.backend.basic_auth,airflow.api.auth.backend.session'
     AIRFLOW__WEBSERVER__BASE_URL: http://localhost:8080
     AIRFLOW__SCHEDULER__ENABLE_HEALTH_CHECK: 'true'
-    _PIP_ADDITIONAL_REQUIREMENTS: ${_PIP_ADDITIONAL_REQUIREMENTS:-}
+    _PIP_ADDITIONAL_REQUIREMENTS: "psycopg2-binary pydantic pydantic-settings python-dotenv"
+    PYTHONPATH: /opt/airflow:/opt/airflow/app
+
   volumes:
     - ./airflow/dags:/opt/airflow/dags
     - ./logs:/opt/airflow/logs
@@ -27,6 +29,8 @@ x-airflow-common:
     - ./airflow/data/raw-data:/opt/airflow/data/raw_data
     - ./airflow/data/good-data:/opt/airflow/data/good_data
     - ./airflow/data/predictions:/opt/airflow/data/predictions
+    - ./app:/opt/airflow/app
+
   user: "${AIRFLOW_UID:-50000}:0"
   depends_on:
     &airflow-common-depends-on
@@ -71,22 +75,31 @@ services:
     restart: always
 
   # ---- FastAPI ----
+
   fastapi:
-    build: ./app
+    build:
+      context: ./app
+      dockerfile: Dockerfile.fastapi
     container_name: fastapi
     ports:
     - "8000:8000"
     environment:
+    - FASTAPI_MODE=true
     - DATABASE_URL=postgresql://postgres:Password@postgres:5432/predictions
     command: uvicorn main:app --host 0.0.0.0 --port 8000
     depends_on:
     - postgres
     restart: unless-stopped
     
+  
+    
 
   # ---- Airflow Webserver ----
   airflow-webserver:
     <<: *airflow-common
+    build:
+      context: .
+      dockerfile: Dockerfile.airflow
     command: webserver
     ports:
       - "8080:8080"
@@ -105,6 +118,7 @@ services:
   # ---- Airflow Scheduler ----
   airflow-scheduler:
     <<: *airflow-common
+    build: .
     command: scheduler
     healthcheck:
       test: ["CMD", "curl", "--fail", "http://localhost:8974/health"]

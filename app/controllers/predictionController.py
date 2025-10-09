@@ -6,15 +6,16 @@ import traceback
 import inspect
 
 from fastapi import APIRouter, Depends, HTTPException
+from requests import Session
 from starlette.concurrency import run_in_threadpool
 from sqlmodel.ext.asyncio.session import AsyncSession
 from sqlalchemy import select
 
 # import your models / helpers
-from models.dbConfig import get_db, Prediction, Base, engine
-from constants import FlightRequest
-from helpers import parse_total_stops, predict_flight_price_util, parse_datetime, duration_to_minutes, predict_price
-from databaseLogic.predictionDL import save_prediction_record
+from helper.helpers import duration_to_minutes, parse_total_stops, predict_price
+from helper.constants import FlightRequest
+from helper.config import Prediction, get_db
+from databaseLogic.predictionDL import save_predictions_to_db
 
 # Setup logger
 logging.basicConfig(level=logging.INFO)
@@ -34,14 +35,14 @@ async def _maybe_async_call(func, *args, **kwargs):
 
 
 @router.post("/predict")
-def predict_flight_price(request: FlightRequest, db: Session = Depends(get_db)):
+async def predict_flight_price(request: FlightRequest, db: Session = Depends(get_db)):
 
     try:
-        # 1️⃣ Run prediction model
+        # Run prediction model
         predicted_price = float(predict_price(request.dict()))
-        logger.info(f"💰 Predicted price: {predicted_price}")
+        logger.info(f" Predicted price: {predicted_price}")
 
-        # 2️⃣ Parse date/time info
+        #  Parse date/time info
         try:
             journey_date = datetime.strptime(request.Date_of_Journey, "%d/%m/%Y").date()
         except ValueError:
@@ -65,7 +66,7 @@ def predict_flight_price(request: FlightRequest, db: Session = Depends(get_db)):
         total_stops = parse_total_stops(request.Total_Stops)
         duration_mins = duration_to_minutes(request.Duration)
 
-        logger.info(f"🛫 Parsed total_stops={total_stops}, duration_mins={duration_mins}")
+        logger.info(f" Parsed total_stops={total_stops}, duration_mins={duration_mins}")
 
         # Create DB record
         prediction_record = Prediction(

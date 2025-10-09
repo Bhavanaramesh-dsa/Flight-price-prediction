@@ -1,4 +1,5 @@
-# prediction_dag.py
+
+import traceback
 from airflow import DAG
 from airflow.operators.python import PythonOperator
 from datetime import datetime
@@ -7,11 +8,15 @@ import pandas as pd
 import requests
 import logging
 
+from databaseLogic.predictionDL import save_predictions_to_db
+
+
+
 # === Configuration ===
 GOOD_DIR = "/opt/airflow/data/good_data"
 PREDICTIONS_DIR = "/opt/airflow/data/predictions"
 PROCESSED_LOG = os.path.join(PREDICTIONS_DIR, "processed_files.csv")
-API_URL = "http://fastapi:8000/predict"
+API_URL = "http://fastapi:8000/api/predict"
 
 # === Setup logging ===
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -25,7 +30,7 @@ def calculate_days_left(date_str):
         days_left = (journey_date - today).days
         return max(days_left, 0)
     except Exception as e:
-        logging.error(f"⚠️ Error parsing Date_of_Journey '{date_str}': {e}")
+        logging.error(f" Error parsing Date_of_Journey '{date_str}': {e}")
         return None
     
 
@@ -100,10 +105,10 @@ def make_predictions(**context):
             # Send rows to FastAPI model
             predictions = []
             total_rows = len(df)
-            logging.info(f"🔍 Starting prediction for {total_rows} rows...")
+            logging.info(f" Starting prediction for {total_rows} rows...")
 
             for idx, row in df.iterrows():
-                # ✅ Calculate days_left per row
+                # Calculate days_left per row
                 days_left = calculate_days_left(row['Date_of_Journey'])
 
                 payload = {
@@ -118,11 +123,11 @@ def make_predictions(**context):
                     'days_left': days_left
                 }
 
-                logging.info(f"\n➡️ [Row {idx + 1}/{total_rows}] Sending payload: {payload}")
+                logging.info(f" [Row {idx + 1}/{total_rows}] Sending payload: {payload}")
 
                 try:
                     response = requests.post(API_URL, json=payload, timeout=10)
-                    logging.info(f"📡 API status: {response.status_code}")
+                    logging.info(f" API status: {response.status_code}")
 
                     if response.status_code == 200:
                         resp_json = response.json()
@@ -130,7 +135,7 @@ def make_predictions(**context):
                         logging.info(f" Received prediction: {predicted}")
                         predictions.append(predicted)
                     else:
-                        logging.warning(f"⚠️ API returned {response.status_code}: {response.text}")
+                        logging.warning(f" API returned {response.status_code}: {response.text}")
                         predictions.append(None)
 
                 except Exception as e:
@@ -140,9 +145,6 @@ def make_predictions(**context):
 
             # Attach predictions to DataFrame
             df["Predicted_Price"] = predictions
-            logging.info(f" Added predictions column. Sample:\n{df[['Airline','Source','Destination','Predicted_Price']].head()}")
-
-            # Save predictions
             out_path = os.path.join(
                 PREDICTIONS_DIR,
                 f"pred_{os.path.splitext(file)[0]}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
@@ -150,7 +152,8 @@ def make_predictions(**context):
             df.to_csv(out_path, index=False)
             logging.info(f" Predictions saved to: {out_path}")
 
-            # Update processed log
+            context["ti"].xcom_push(key="predictions_path", value=out_path)
+
             if os.path.exists(PROCESSED_LOG):
                 processed_log = pd.read_csv(PROCESSED_LOG)
             else:
@@ -160,16 +163,13 @@ def make_predictions(**context):
                 processed_log,
                 pd.DataFrame([{"file_name": file, "processed_at": datetime.now()}])
             ], ignore_index=True)
-
             processed_log.to_csv(PROCESSED_LOG, index=False)
-            logging.info(f"Processed log updated: {PROCESSED_LOG}")
 
         except Exception as e:
             logging.error(f" Error processing {file}: {e}")
             logging.debug(traceback.format_exc())
 
-    logging.info("🏁 All prediction jobs completed successfully!")
-
+    logging.info(" All prediction jobs completed successfully!")
 
 # === DAG Definition ===
 with DAG(
@@ -190,4 +190,10 @@ with DAG(
         python_callable=make_predictions
     )
 
-    t1 >> t2
+
+    t3 = PythonOperator(
+        task_id="save_predictions_to_db",
+        python_callable=save_predictions_to_db,
+        provide_context=True
+    )
+    t1 >> t2 >> t3

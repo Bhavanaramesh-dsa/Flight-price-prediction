@@ -21,6 +21,7 @@ def read_data(**context):
     chosen = random.choice(files)
     file_path = os.path.join(RAW_DIR, chosen)
     print(f"[read_data] Selected: {file_path}")
+
     # push full path to XCom
     context["ti"].xcom_push(key="file_path", value=file_path)
     return file_path

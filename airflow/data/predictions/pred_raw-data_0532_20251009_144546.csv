@@ -1,0 +1,12 @@
+Airline,Date_of_Journey,Source,Destination,route,Dep_Time,Arrival_Time,Duration,Total_Stops,additional_info,price,Predicted_Price
+Air India,15/03/2019,Banglore,New Delhi,BLR → HYD → VGA → DEL,08:15,11:20 16 Mar,27h 5m,2 stops,No info,8534,
+Jet Airways,15/05/2019,Banglore,Delhi,BLR → DEL,17:45,20:45,3h,non-stop,In-flight meal not included,4030,
+Jet Airways,24/06/2019,Delhi,Cochin,DEL → IDR → BOM → COK,09:35,04:25 25 Jun,18h 50m,2 stops,No info,13292,
+Jet Airways,24/06/2019,Delhi,Cochin,DEL → JAI → BOM → COK,05:30,04:25 25 Jun,22h 55m,2 stops,No info,13014,
+Air India,9/03/2019,Delhi,Cochin,DEL → BOM → COK,08:00,19:15,11h 15m,1 stop,No info,16754,
+IndiGo,1/03/2019,Kolkata,Banglore,CCU → BLR,17:15,19:55,2h 40m,non-stop,No info,6565,
+Jet Airways,27/05/2019,Delhi,Cochin,DEL → BOM → COK,22:50,19:00 28 May,20h 10m,1 stop,No info,16079,
+Jet Airways,9/05/2019,Delhi,Cochin,DEL → IDR → BOM → COK,21:25,12:35 10 May,15h 10m,2 stops,In-flight meal not included,11507,
+Vistara,6/03/2019,Mumbai,Hyderabad,BOM → DEL → HYD,07:30,09:25 07 Mar,25h 55m,1 stop,No info,12395,
+IndiGo,01/03/2019,Banglore,New Delhi,BLR → BOM → DEL,19:35,00:35 02 Mar,5h,1 stop,No info,22153,
+Jet Airways,27/06/2019,Delhi,Cochin,DEL → NAG → BOM → COK,06:45,12:35 28 Jun,29h 50m,2 stops,In-flight meal not included,10919,

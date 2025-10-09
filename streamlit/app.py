@@ -21,10 +21,8 @@ model.load_model(model_path)
 # Load training columns
 model_columns = pickle.load(open(columns_path, "rb"))
 
-# ===============================
-# 2. Streamlit UI
-# ===============================
-st.title("✈️ Flight Price Prediction App ")
+#  Streamlit UI
+st.title(" Flight Price Prediction App ")
 
 # Flight details input
 airline = st.selectbox("Airline", ["Jet Airways", "IndiGo", "Air India", "SpiceJet", "GoAir"])
@@ -38,9 +36,7 @@ dep_minute = st.number_input("Departure Minute", min_value=0, max_value=59, valu
 duration_hours = st.number_input("Duration Hours", min_value=0, max_value=24, value=2)
 duration_mins = st.number_input("Duration Minutes", min_value=0, max_value=59, value=30)
 
-# ===============================
-# 3. Prediction
-# ===============================
+#  Prediction
 if st.button("Predict Price"):
     # Create input DataFrame
     input_dict = {
@@ -64,4 +60,4 @@ if st.button("Predict Price"):
     # Predict
     predicted_price = model.predict(input_df)[0]
 
-    st.success(f"💰 Predicted Flight Price: ₹ {predicted_price:,.2f}")
+    st.success(f" Predicted Flight Price: ₹ {predicted_price:,.2f}")

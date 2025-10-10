@@ -4,12 +4,15 @@ from datetime import datetime
 import logging
 import traceback
 import inspect
+from helper.config import engine
+import pandas as pd
+
 
 from fastapi import APIRouter, Depends, HTTPException
 from requests import Session
 from starlette.concurrency import run_in_threadpool
 from sqlmodel.ext.asyncio.session import AsyncSession
-from sqlalchemy import select
+from sqlalchemy import select, text
 
 # import your models / helpers
 from helper.helpers import duration_to_minutes, parse_total_stops, predict_price
@@ -104,9 +107,13 @@ async def predict_flight_price(request: FlightRequest, db: Session = Depends(get
         logger.error(traceback.format_exc())
         raise HTTPException(status_code=500, detail=f"Unexpected error: {e}")
 
+
 @router.get("/past-predictions")
-async def get_predictions(limit: int = 20, db: AsyncSession = Depends(get_db)):
-    # make sure to await execute (AsyncSession)
-    result = await db.execute(select(Prediction).order_by(Prediction.arrival_time.desc()).limit(limit))
-    predictions = result.scalars().all()
-    return predictions
+def get_predictions(limit: int = 20):
+        # Read directly from PostgreSQL
+        query = f"SELECT * FROM predictions;"
+        df = pd.read_sql(query, con=engine)
+
+        # Convert DataFrame rows into list of dictionaries
+        return df.to_dict(orient="records")
+

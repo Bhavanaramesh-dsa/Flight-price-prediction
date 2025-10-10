@@ -22,3 +22,5 @@ engine = create_engine(DATABASE_URL, echo=False, future=True)
 
 print(f"[DEBUG] Using DATABASE_URL: {DATABASE_URL}")
 print(f"[DEBUG] Engine created successfully: {engine}")
+
+

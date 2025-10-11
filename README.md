@@ -187,9 +187,6 @@ docker compose up -d
 # 3️⃣ (Optional) View logs in real time
 docker compose up
 
-
-
-
 🏁 Conclusion
 This project represents a complete production-ready ML workflow, integrating:
 ✅ Real-time prediction API

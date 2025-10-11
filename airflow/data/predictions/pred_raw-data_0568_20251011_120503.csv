@@ -1,0 +1,12 @@
+Airline,Date_of_Journey,Source,Destination,route,Dep_Time,Arrival_Time,Duration,Total_Stops,additional_info,price,Predicted_Price
+IndiGo,18/04/2019,Kolkata,Banglore,CCU → BLR,04:40,07:15,2h 35m,non-stop,No info,4174,
+IndiGo,27/06/2019,Mumbai,Hyderabad,BOM → HYD,20:05,21:40,1h 35m,non-stop,No info,2227,
+Jet Airways,18/03/2019,Banglore,New Delhi,BLR → BOM → DEL,22:50,09:00 16 Mar,10h 10m,1 stop,In-flight meal not included,11087,
+Multiple carriers,21/03/2019,Delhi,Cochin,DEL → BOM → COK,08:00,18:50,10h 50m,1 stop,No info,11667,
+Air India,6/03/2019,Delhi,Cochin,DEL → COK,18:05,21:10,3h 5m,non-stop,No info,7931,
+IndiGo,12/06/2019,Chennai,Kolkata,MAA → CCU,22:05,00:25 13 Jun,2h 20m,non-stop,No info,5277,
+Jet Airways,12/06/2019,Kolkata,Banglore,CCU → BOM → BLR,06:30,18:15,11h 45m,1 stop,No info,13626,
+Jet Airways,18/05/2019,Delhi,Cochin,DEL → BOM → COK,18:15,04:25 19 May,10h 10m,1 stop,In-flight meal not included,12373,
+Jet Airways,24/03/2019,Kolkata,Banglore,CCU → BOM → BLR,06:30,18:10,11h 40m,1 stop,In-flight meal not included,10031,
+Jet Airways,12/05/2019,Kolkata,Banglore,CCU → BOM → BLR,16:30,20:45 13 May,28h 15m,1 stop,In-flight meal not included,10844,
+GoAir,9/05/2019,Delhi,Cochin,DEL → BOM → COK,10:35,19:35,9h,1 stop,No info,6591,

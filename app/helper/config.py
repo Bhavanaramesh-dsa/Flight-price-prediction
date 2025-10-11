@@ -1,26 +1,30 @@
-from dotenv import load_dotenv
 from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 import os
 
-# Load .env
-load_dotenv()
+# Database URL (from env or default)
+DATABASE_URL = os.getenv("DATABASE_URL", "postgresql+psycopg2://postgres:Password@postgres:5432/predictions")
 
-#  Default DB config
-DB_USER = os.getenv("DB_USER", "postgres")
-DB_PASSWORD = os.getenv("DB_PASSWORD", "Password")
-DB_HOST = os.getenv("DB_HOST", "postgres")
-DB_PORT = os.getenv("DB_PORT", "5432")
-DB_NAME = os.getenv("DB_NAME", "predictions")
+# Create SQLAlchemy engine
+engine = create_engine(DATABASE_URL)
 
-#  Create database connection string
-DATABASE_URL = (
-    f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
-)
+# Session factory
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-# ✅ Initialize engine
-engine = create_engine(DATABASE_URL, echo=False, future=True)
-
-print(f"[DEBUG] Using DATABASE_URL: {DATABASE_URL}")
-print(f"[DEBUG] Engine created successfully: {engine}")
+# Base model class
+Base = declarative_base()
 
 
+# ✅ Add this function — this is what FastAPI Depends(get_db) needs
+def get_db():
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+
+# Optional: for creating tables during startup
+def create_tables():
+    Base.metadata.create_all(bind=engine)

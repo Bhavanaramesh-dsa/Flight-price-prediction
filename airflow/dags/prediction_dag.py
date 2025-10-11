@@ -10,8 +10,6 @@ import logging
 
 from databaseLogic.predictionDL import save_predictions_to_db
 
-
-
 # === Configuration ===
 GOOD_DIR = "/opt/airflow/data/good_data"
 PREDICTIONS_DIR = "/opt/airflow/data/predictions"

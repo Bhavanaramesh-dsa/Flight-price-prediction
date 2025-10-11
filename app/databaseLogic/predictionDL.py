@@ -53,25 +53,43 @@ def save_predictions_to_db(**context):
             db_cols = [col["name"] for col in inspector.get_columns(table_name)]
             df_cols = list(df.columns)
             if set(db_cols) != set(df_cols):
-                print("⚠️ Detected schema mismatch between DataFrame and DB table.")
-                print(f"🗑️ Dropping old '{table_name}' table to recreate with correct schema.")
+                print(" Detected schema mismatch between DataFrame and DB table.")
+                print(f" Dropping old '{table_name}' table to recreate with correct schema.")
                 with engine.begin() as conn:
                     conn.execute(text(f"DROP TABLE IF EXISTS {table_name} CASCADE;"))
                 df.head(0).to_sql(table_name, con=engine, index=False)
-                print(f"✅ Recreated table '{table_name}' with correct columns: {df_cols}")
+                print(f" Recreated table '{table_name}' with correct columns: {df_cols}")
         else:
             print(f"🛠️ Table '{table_name}' not found — creating it now.")
             df.head(0).to_sql(table_name, con=engine, index=False)
-            print(f"✅ Created new table '{table_name}' successfully.")
+            print(f" Created new table '{table_name}' successfully.")
 
         # 4️⃣ Insert data
-        print(f"💾 Inserting {len(df)} records into '{table_name}'...")
+        print(f" Inserting {len(df)} records into '{table_name}'...")
         df.to_sql(table_name, con=engine, if_exists="append", index=False)
-        print(f"✅ {len(df)} records inserted successfully!")
+        print(f" {len(df)} records inserted successfully!")
 
     except SQLAlchemyError as e:
-        print(f"❌ Database error: {e}")
+        print(f" Database error: {e}")
     except Exception as e:
-        print(f"⚠️ Unexpected error: {e}")
+        print(f" Unexpected error: {e}")
 
-    print("🏁 save_predictions_to_db task completed successfully.")
+    print(" save_predictions_to_db task completed successfully.")
+
+
+
+from sqlalchemy import Column, Integer, String, Float, DateTime
+from helper.config import Base
+from datetime import datetime
+
+class Prediction(Base):
+    __tablename__ = "predictions"
+
+    id = Column(Integer, primary_key=True, index=True)
+    airline = Column(String)
+    source_city = Column(String)
+    destination_city = Column(String)
+    total_stops = Column(Integer)
+    duration_mins = Column(Integer)
+    price = Column(Float)
+    created_at = Column(DateTime, default=datetime.utcnow)

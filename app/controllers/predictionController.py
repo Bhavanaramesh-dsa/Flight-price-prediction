@@ -4,9 +4,10 @@ from datetime import datetime
 import logging
 import traceback
 import inspect
-from helper.config import engine
+from helper.config import engine, get_db
 import pandas as pd
 
+from sqlalchemy import text
 
 from fastapi import APIRouter, Depends, HTTPException
 from requests import Session
@@ -17,8 +18,8 @@ from sqlalchemy import select, text
 # import your models / helpers
 from helper.helpers import duration_to_minutes, parse_total_stops, predict_price
 from helper.constants import FlightRequest
-from helper.config import Prediction, get_db
-from databaseLogic.predictionDL import save_predictions_to_db
+
+from databaseLogic.predictionDL import Prediction, save_predictions_to_db
 
 # Setup logger
 logging.basicConfig(level=logging.INFO)
@@ -26,7 +27,6 @@ logger = logging.getLogger(__name__)
 
 
 router = APIRouter(prefix="/api", tags=["Predictions"])
-
 
 async def _maybe_async_call(func, *args, **kwargs):
     """
@@ -107,13 +107,10 @@ async def predict_flight_price(request: FlightRequest, db: Session = Depends(get
         logger.error(traceback.format_exc())
         raise HTTPException(status_code=500, detail=f"Unexpected error: {e}")
 
-
-@router.get("/past-predictions")
-def get_predictions(limit: int = 20):
-        # Read directly from PostgreSQL
-        query = f"SELECT * FROM predictions;"
-        df = pd.read_sql(query, con=engine)
-
-        # Convert DataFrame rows into list of dictionaries
-        return df.to_dict(orient="records")
+@router.get("/predictions")
+def get_predictions():
+    query = "SELECT * FROM predictions"
+    with engine.connect() as conn:
+        df = pd.read_sql(text(query), conn)
+    return df.to_dict(orient="records")
 

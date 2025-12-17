@@ -1,0 +1,132 @@
+expectation_suite_name: flight_raw_expectations
+meta:
+  great_expectations_version: "0.17.22"
+
+expectations:
+
+  # -------- TABLE LEVEL --------
+  - expect_table_row_count_to_be_greater_than:
+      value: 0
+
+  # -------- COLUMN EXISTENCE --------
+  - expect_column_to_exist:
+      column: airline
+  - expect_column_to_exist:
+      column: source_city
+  - expect_column_to_exist:
+      column: departure_time
+  - expect_column_to_exist:
+      column: arrival_time
+  - expect_column_to_exist:
+      column: stops
+  - expect_column_to_exist:
+      column: destination_city
+  - expect_column_to_exist:
+      column: class
+  - expect_column_to_exist:
+      column: duration
+  - expect_column_to_exist:
+      column: days_left
+  - expect_column_to_exist:
+      column: price
+
+  # -------- NOT NULL --------
+  - expect_column_values_to_not_be_null:
+      column: airline
+  - expect_column_values_to_not_be_null:
+      column: source_city
+  - expect_column_values_to_not_be_null:
+      column: departure_time
+  - expect_column_values_to_not_be_null:
+      column: arrival_time
+  - expect_column_values_to_not_be_null:
+      column: stops
+  - expect_column_values_to_not_be_null:
+      column: destination_city
+  - expect_column_values_to_not_be_null:
+      column: class
+  - expect_column_values_to_not_be_null:
+      column: duration
+  - expect_column_values_to_not_be_null:
+      column: days_left
+  - expect_column_values_to_not_be_null:
+      column: price
+
+  # -------- VALUE SET EXPECTATIONS --------
+  - expect_column_values_to_be_in_set:
+      column: airline
+      value_set:
+        - SpiceJet
+        - IndiGo
+        - Air India
+        - GoAir
+        - Vistara
+        - AirAsia
+
+  - expect_column_values_to_be_in_set:
+      column: source_city
+      value_set:
+        - Delhi
+        - Mumbai
+        - Bangalore
+        - Chennai
+        - Kolkata
+        - Hyderabad
+
+  - expect_column_values_to_be_in_set:
+      column: destination_city
+      value_set:
+        - Delhi
+        - Mumbai
+        - Bangalore
+        - Chennai
+        - Kolkata
+        - Hyderabad
+
+  - expect_column_values_to_be_in_set:
+      column: departure_time
+      value_set:
+        - Early_Morning
+        - Morning
+        - Afternoon
+        - Evening
+        - Night
+        - Late_Night
+
+  - expect_column_values_to_be_in_set:
+      column: arrival_time
+      value_set:
+        - Early_Morning
+        - Morning
+        - Afternoon
+        - Evening
+        - Night
+        - Late_Night
+
+  - expect_column_values_to_be_in_set:
+      column: stops
+      value_set:
+        - zero
+        - one
+        - two_or_more
+
+  - expect_column_values_to_be_in_set:
+      column: class
+      value_set:
+        - Economy
+        - Business
+
+  # -------- RANGE EXPECTATIONS --------
+  - expect_column_values_to_be_between:
+      column: duration
+      min_value: 0
+      max_value: 30
+
+  - expect_column_values_to_be_between:
+      column: days_left
+      min_value: 0
+      max_value: 365
+
+  - expect_column_values_to_be_between:
+      column: price
+      min_value: 0

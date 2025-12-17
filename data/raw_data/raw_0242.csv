@@ -1,0 +1,51 @@
+Unnamed: 0,airline,flight,source_city,departure_time,stops,arrival_time,destination_city,class,duration,days_left,price
+97501,Vistara,UK-816,Bangalore,Morning,one,Night,Mumbai,Economy,10.5,21,6568
+254864,Vistara,UK-850,Bangalore,Evening,one,Morning,Kolkata,Business,13.75,33,51817
+31543,Air_India,AI-803,Delhi,Early_Morning,one,Night,Hyderabad,Economy,14.08,23,5530
+35181,Vistara,UK-993,Delhi,Afternoon,one,Early_Morning,Hyderabad,Economy,19.0,48,5772
+271071,Vistara,UK-708,Kolkata,Night,one,Evening,Hyderabad,Business,20.58,19,52175
+273626,Vistara,UK-772,Kolkata,Morning,one,Evening,Chennai,Business,9.5,25,55502
+193970,Vistara,UK-824,Chennai,Night,one,Night,Bangalore,Economy,24.42,4,11650
+108451,Vistara,UK-864,Bangalore,Evening,one,Morning,Kolkata,Economy,14.67,41,6271
+153168,Air_India,AI-9518,Hyderabad,Night,one,Morning,Delhi,Economy,12.17,8,11488
+71292,Vistara,UK-944,Mumbai,Afternoon,one,Evening,Hyderabad,Economy,5.25,9,9879
+191281,Vistara,UK-832,Chennai,Early_Morning,one,Evening,Mumbai,Economy,10.75,30,5372
+202784,Indigo,6E-6137,Chennai,Morning,one,Evening, Hyderabad ,Economy,8.83,4,4202
+56180,AirAsia,I5-620,Mumbai,Early_Morning,one,Morning,Bangalore,Economy,3.92,21,2074
+32702,Vistara,UK-985,Delhi,Evening,one,Afternoon,Hyderabad,Economy,16.42,31,5772
+68714,Indigo,6E-395,Mumbai,Evening,zero,Night,Kolkata,Economy,2.5,41,4499
+103288,SpiceJet,SG-4009,Bangalore,Early_Morning,one,Night,Kolkata,Economy,14.33,6,5177
+199689,AirAsia,I5-1229,Chennai,Evening,one,Night,Kolkata,Economy,5.0,21,2361
+227896,Vistara,UK-653,Mumbai,Early_Morning,one,Evening,Delhi,Business,13.83,30,36565
+167968,Air_India,AI-543,Hyderabad,Morning,one,Night,Bangalore,Economy,8.75,25,6314
+295964,Air_India,AI-766,Chennai,Morning,zero,Morning,Kolkata,Business,2.58,3,25600
+101704,AirAsia,I5-1782,Bangalore,Night,one,Late_Night,Mumbai,Economy,5.67,44,2203
+187020,Vistara,UK-822,Chennai,Morning,one,Night,Delhi,Economy,10.92,46,4971
+108265,Indigo,6E-978,Bangalore,Evening,one,Night,Kolkata,Economy,5.08,40,4477
+258873,Vistara,UK-864,Bangalore,Evening,one,Afternoon,Hyderabad,Business,17.25,48,37985
+26717,GO_FIRST,G8-7534,Delhi,Afternoon,one,Night,Kolkata,Economy,8.08,38,6775
+295568,Vistara,UK-828,Chennai,Early_Morning,one,Night,Bangalore,Business,13.92,43,44144
+117418,Vistara,UK-802,Bangalore,Evening,one,Morning,Chennai,Economy,15.08,24,6476
+94872,AirAsia,I5-941,Bangalore,Early_Morning,zero,Early_Morning,Mumbai,Economy,1.67,7,7882
+101352,Indigo,6E-638,Bangalore,Evening,one, late_night,Mumbai,Economy,4.08,42,3153
+119083,Air_India,AI-610,Bangalore,Evening,one,Morning,Chennai,Economy,15.75,43,3720
+143785, Air India ,6E-6172,Kolkata,Night,zero,Late_Night,Hyderabad,Economy,2.17,14,6489
+22800,Air_India,AI-839,Delhi,Night,one,Morning,Kolkata,Economy,10.67,17,5290
+92588,AirAsia,I5-1229,Bangalore,Evening,one,Late_Night,Delhi,Economy,7.08,43,3467
+104559,Vistara,UK-854,Bangalore,Evening,one,Morning,Kolkata,Economy,15.25,15,9983
+147413,Indigo,6E-512,Kolkata,Afternoon,one,Evening,Hyderabad,Economy,4.5,44,4367
+239753,Air_India,AI-888,Mumbai,Evening,one,Night,,Business,25.58,26,45693
+281121,Air_India,AI-543,Hyderabad,Morning,one,Morning,Bangalore,Business,21.58,17,56590
+146671,Indigo,6E-725,Kolkata,Evening,zero,Night,Hyderabad,,2.17,38,4011
+104908,Vistara,UK-814,Bangalore,Night,one,Evening,Kolkata,Economy,22.42,17,8322
+133913,Indigo,6E-6021,Kolkata,Afternoon,one,Night,Mumbai,Economy,6.83,40,4515
+286284,Vistara,UK-874,Hyderabad,Morning,one,Night,Chennai,Business,14.58,23,41314
+283254,Vistara,UK-878,Hyderabad,Afternoon,one,Evening,Kolkata,Business,27.92,8,48851
+82436,Vistara,UK-958,Mumbai,Afternoon,one,Morning,Chennai,Economy,21.5,38,3998
+18959,GO_FIRST,G8-275,Delhi,Evening,one,Late_Night,Bangalore,Economy,8.0,44,4205
+190200,Air_India,AI-440,Chennai,Early_Morning,one,Night,Mumbai,Economy,16.0,22,6037
+49458,Vistara,UK-960,Mumbai,Morning,zero,Afternoon,Delhi,Economy,2.17,34,2339
+172871,Indigo,6E-384,Hyderabad,Morning,one,Evening,Kolkata,Economy,7.25,21,5293
+66111,Indigo,6E-354,Mumbai,Afternoon,one,Evening,Kolkata,Economy,6.5,27,5579
+184465,Indigo,6E-6006,Chennai,Afternoon,one,Late_Night,Delhi,Economy,9.33,30,4541
+74482,Vistara,UK-655,Mumbai,Morning,two_or_more,Night,Hyderabad,Economy,11.42,30,6401

@@ -1,0 +1,7 @@
+pandas==2.2.2
+requests==2.32.3
+psycopg2-binary==2.9.9
+sqlalchemy==1.4.52
+great_expectations==0.17.22
+pyarrow==14.0.2
+python-dotenv==1.0.1

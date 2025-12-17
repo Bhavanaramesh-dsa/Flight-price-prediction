@@ -1,0 +1,9 @@
+name: ingestion_checkpoint
+config_version: 1.0
+class_name: Checkpoint
+
+validations:
+  - batch_request:
+      datasource_name: flight_raw_files
+      data_asset_name: raw_csvs
+    expectation_suite_name: flight_raw_expectations

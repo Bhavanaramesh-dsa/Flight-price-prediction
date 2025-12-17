@@ -1,0 +1,9 @@
+# Data folders (do not version control)
+data/raw_data/
+data/good_data/
+data/bad_data/
+data/predictions/
+
+# Python
+__pycache__/
+*.pyc

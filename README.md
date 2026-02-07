@@ -20,7 +20,7 @@ This project integrates **Machine Learning, Apache Airflow, Great Expectations, 
 
 ## 🏗️ System Architecture
 
-![System Architecture](images/DataFlow.png)
+https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/SystemArch.png
 
 **High-level flow:**
 

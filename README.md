@@ -94,8 +94,8 @@ FlightPricePrediction/
 ├── images/
 ├── docker-compose.yml
 └── README.md
-
 ---
+```
 
 ##⚙️ How to Run the Project
 1️⃣ Clone the Repository

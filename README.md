@@ -138,25 +138,25 @@ Used by both Streamlit UI and Airflow prediction DAG
 User selects flight attributes
 Instant price prediction
 Prediction stored in PostgreSQL
-![Single Prediction](images/Steamlit-SinglePrediction.png)
+![Streamlit Single](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Streamlit-SinglePrediction.png)
 
 ###🔹 Batch Prediction
 Upload CSV (without price column)
 Batch predictions generated
 Stored and monitored automatically
-![Batch Prediction](images/Streamlit-BatchPrediction.png)
+![Streamlit Batch](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Streamlit-BatchPrediction.png)
 
 ###🔹 Past Predictions
 Filter predictions by date & source
 Compare scheduled vs manual predictions
-![Past Predictions](images/Streamlit-PastPrediction.png)
+![Streamlit Past](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Streamlit-PastPrediction.png)
 
 ---
 
 ##⏱️ Airflow Workflows
 
 #Ingestion DAG
-![Airflow Ingestion DAG](images/Airflow-Ingestion.png)
+![Airflow Ingestion](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Airflow-Ingestion.png)
 
 Tasks:
 Read raw data
@@ -167,7 +167,7 @@ Trigger alerts on failure
 
 
 #Prediction DAG
-![Airflow Prediction DAG](images/Airflow-Prediction.png)
+![Airflow Prediction](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Airflow-Prediction.png)
 
 Tasks:
 Check for new data
@@ -186,7 +186,7 @@ Severity-based alerts triggered
 
 ##📊 Grafana Monitoring
 ### Ingestion Monitoring Dashboard
-![Grafana Ingestion Dashboard](images/Grafana-IngestionDashboard.png)
+![Grafana Ingestion](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Grafana-IngestionDashboard.png)
 
 **Monitors:**
 - Total files ingested  
@@ -194,7 +194,7 @@ Severity-based alerts triggered
 - Severity over time  
 
 ### Prediction & Drift Monitoring
-![Grafana Prediction Dashboard](images/Grafana-PredictionDashbaord.png)
+![Grafana Prediction](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Grafana-PredictionDashboard.png)
 
 **Monitors:**
 - Predictions per minute  
@@ -204,10 +204,10 @@ Severity-based alerts triggered
 ##🚨 Alerting (Microsoft Teams)
 
 ### Great Expectations Alerts
-![Teams GE Alert](images/Teams-GE-dataAlerts.png)
+![GE Alerts](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Teams-GE-dataAlerts.png)
 
 ### Grafana Alerts
-![Teams Grafana Alert](images/Teams-GrafanaAlerts.png)
+![Grafana Alerts](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Teams-GrafanaAlerts.png)
 
 ##🎯 What This Project Demonstrates
 

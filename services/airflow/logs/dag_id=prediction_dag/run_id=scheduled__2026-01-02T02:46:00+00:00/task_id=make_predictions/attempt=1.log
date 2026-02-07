@@ -1,0 +1,19 @@
+[2026-01-02T03:03:03.041+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: prediction_dag.make_predictions scheduled__2026-01-02T02:46:00+00:00 [queued]>
+[2026-01-02T03:03:03.066+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: prediction_dag.make_predictions scheduled__2026-01-02T02:46:00+00:00 [queued]>
+[2026-01-02T03:03:03.067+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2026-01-02T03:03:03.116+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): make_predictions> on 2026-01-02 02:46:00+00:00
+[2026-01-02T03:03:03.145+0000] {standard_task_runner.py:60} INFO - Started process 4632 to run task
+[2026-01-02T03:03:03.158+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'prediction_dag', 'make_predictions', 'scheduled__2026-01-02T02:46:00+00:00', '--job-id', '12333', '--raw', '--subdir', 'DAGS_FOLDER/prediction_dag.py', '--cfg-path', '/tmp/tmp11ak4zwz']
+[2026-01-02T03:03:03.166+0000] {standard_task_runner.py:88} INFO - Job 12333: Subtask make_predictions
+[2026-01-02T03:03:03.573+0000] {task_command.py:423} INFO - Running <TaskInstance: prediction_dag.make_predictions scheduled__2026-01-02T02:46:00+00:00 [running]> on host 8fa1ffc51a9f
+[2026-01-02T03:03:04.886+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='prediction_dag' AIRFLOW_CTX_TASK_ID='make_predictions' AIRFLOW_CTX_EXECUTION_DATE='2026-01-02T02:46:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-02T02:46:00+00:00'
+[2026-01-02T03:03:04.943+0000] {logging_mixin.py:188} INFO - 
+[INFO] Processing → raw_0070_good.csv
+[2026-01-02T03:03:05.194+0000] {logging_mixin.py:188} INFO - [INFO] Saved predictions → /opt/airflow/data/predictions/pred_raw_0070_good.csv
+[2026-01-02T03:03:05.373+0000] {logging_mixin.py:188} INFO - 
+[INFO] Processing → raw_2740_good.csv
+[2026-01-02T03:03:05.589+0000] {logging_mixin.py:188} INFO - [INFO] Saved predictions → /opt/airflow/data/predictions/pred_raw_2740_good.csv
+[2026-01-02T03:03:05.624+0000] {python.py:202} INFO - Done. Returned value was: None
+[2026-01-02T03:03:05.760+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=prediction_dag, task_id=make_predictions, execution_date=20260102T024600, start_date=20260102T030303, end_date=20260102T030305
+[2026-01-02T03:03:05.928+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-01-02T03:03:06.068+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check

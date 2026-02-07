@@ -1,0 +1,26 @@
+[2026-01-02T06:44:06.372+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: prediction_dag.cleanup_files scheduled__2026-01-02T05:28:00+00:00 [queued]>
+[2026-01-02T06:44:06.384+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: prediction_dag.cleanup_files scheduled__2026-01-02T05:28:00+00:00 [queued]>
+[2026-01-02T06:44:06.385+0000] {taskinstance.py:2193} INFO - Starting attempt 2 of 2
+[2026-01-02T06:44:06.399+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): cleanup_files> on 2026-01-02 05:28:00+00:00
+[2026-01-02T06:44:06.413+0000] {standard_task_runner.py:60} INFO - Started process 5382 to run task
+[2026-01-02T06:44:06.423+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'prediction_dag', 'cleanup_files', 'scheduled__2026-01-02T05:28:00+00:00', '--job-id', '12406', '--raw', '--subdir', 'DAGS_FOLDER/prediction_dag.py', '--cfg-path', '/tmp/tmpho38txkr']
+[2026-01-02T06:44:06.435+0000] {standard_task_runner.py:88} INFO - Job 12406: Subtask cleanup_files
+[2026-01-02T06:44:06.793+0000] {task_command.py:423} INFO - Running <TaskInstance: prediction_dag.cleanup_files scheduled__2026-01-02T05:28:00+00:00 [running]> on host 8fa1ffc51a9f
+[2026-01-02T06:44:07.457+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='prediction_dag' AIRFLOW_CTX_TASK_ID='cleanup_files' AIRFLOW_CTX_EXECUTION_DATE='2026-01-02T05:28:00+00:00' AIRFLOW_CTX_TRY_NUMBER='2' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-02T05:28:00+00:00'
+[2026-01-02T06:44:07.523+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 444, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 414, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 200, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/operators/python.py", line 217, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/prediction_dag.py", line 166, in cleanup
+    os.remove(fp)
+FileNotFoundError: [Errno 2] No such file or directory: '/opt/airflow/data/good_data/raw_3331_good.csv'
+[2026-01-02T06:44:07.546+0000] {taskinstance.py:1149} INFO - Marking task as FAILED. dag_id=prediction_dag, task_id=cleanup_files, execution_date=20260102T052800, start_date=20260102T064406, end_date=20260102T064407
+[2026-01-02T06:44:07.572+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 12406 for task cleanup_files ([Errno 2] No such file or directory: '/opt/airflow/data/good_data/raw_3331_good.csv'; 5382)
+[2026-01-02T06:44:07.627+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 1
+[2026-01-02T06:44:07.725+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

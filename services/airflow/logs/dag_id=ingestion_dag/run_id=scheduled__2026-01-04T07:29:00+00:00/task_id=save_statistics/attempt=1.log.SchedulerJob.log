@@ -1,0 +1,1 @@
+[2026-01-04T10:21:53.885+0000] {scheduler_job_runner.py:781} ERROR - Executor reports task instance <TaskInstance: ingestion_dag.save_statistics scheduled__2026-01-04T07:29:00+00:00 [queued]> finished (failed) although the task says it's queued. (Info: None) Was the task killed externally?

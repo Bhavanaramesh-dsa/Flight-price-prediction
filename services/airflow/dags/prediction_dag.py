@@ -11,6 +11,9 @@ from airflow.operators.python import PythonOperator
 from airflow.utils.dates import days_ago
 from sqlalchemy import create_engine, text
 
+# ------------------------------------------------------------
+# CONFIG
+# ------------------------------------------------------------
 GOOD_DIR = os.getenv("GOOD_DATA_DIR", "/opt/airflow/data/good_data")
 PRED_DIR = os.getenv("PREDICTIONS_DIR", "/opt/airflow/data/predictions")
 
@@ -36,7 +39,7 @@ REQUIRED_COLS = [
 ]
 
 # ------------------------------------------------------------
-# 0. CREATE TABLES IF NOT EXISTS
+# 0. ENSURE TABLES
 # ------------------------------------------------------------
 def ensure_tables():
     with engine.begin() as con:
@@ -56,11 +59,10 @@ def ensure_tables():
             );
         """))
 
-
 # ------------------------------------------------------------
 # 1. CHECK FOR NEW GOOD FILES
 # ------------------------------------------------------------
-def check_new(**context):
+def check_for_new_data(**context):
     ensure_tables()
 
     all_files = sorted(glob.glob(str(pathlib.Path(GOOD_DIR) / "*.csv")))
@@ -68,28 +70,31 @@ def check_new(**context):
         raise AirflowSkipException("No good_data files found.")
 
     with engine.begin() as con:
-        processed = {r[0] for r in con.execute(text("SELECT filename FROM processed_files"))}
+        processed = {
+            r[0] for r in con.execute(text("SELECT filename FROM processed_files"))
+        }
 
-    new_files = [f for f in all_files if os.path.basename(f) not in processed]
+    new_files = [
+        f for f in all_files if os.path.basename(f) not in processed
+    ]
 
     if not new_files:
         raise AirflowSkipException("No new files to process.")
 
-    print(f"[INFO] New files: {new_files}")
+    print(f"[INFO] New files detected: {new_files}")
     context["ti"].xcom_push(key="files", value=new_files)
-
 
 # ------------------------------------------------------------
 # 2. MAKE PREDICTIONS USING API
 # ------------------------------------------------------------
-def make_preds(**context):
+def make_predictions(**context):
     files = context["ti"].xcom_pull(key="files")
 
     pathlib.Path(PRED_DIR).mkdir(parents=True, exist_ok=True)
 
     for fp in files:
         fname = os.path.basename(fp)
-        print(f"\n[INFO] Processing → {fname}")
+        print(f"[INFO] Predicting → {fname}")
 
         try:
             df = pd.read_csv(fp)
@@ -136,7 +141,7 @@ def make_preds(**context):
                 )
 
         except Exception as e:
-            print(f"[ERROR] Failed → {fname}: {e}")
+            print(f"[ERROR] Prediction failed → {fname}: {e}")
             with engine.begin() as con:
                 con.execute(
                     text("""
@@ -146,29 +151,6 @@ def make_preds(**context):
                     {"f": fname},
                 )
 
-
-# ------------------------------------------------------------
-# 3. CLEANUP GOOD FILES (ONLY AFTER SUCCESS)
-# ------------------------------------------------------------
-def cleanup(**context):
-    files = context["ti"].xcom_pull(key="files")
-
-    for fp in files:
-        fname = os.path.basename(fp)
-
-        with engine.begin() as con:
-            r = con.execute(
-                text("SELECT status FROM prediction_runs WHERE filename=:f ORDER BY id DESC LIMIT 1"),
-                {"f": fname},
-            ).first()
-
-        if r and r[0] == "SUCCESS":
-            os.remove(fp)
-            print(f"[CLEANUP] Removed: {fp}")
-        else:
-            print(f"[CLEANUP] Skipped (failed): {fp}")
-
-
 # ------------------------------------------------------------
 # DAG
 # ------------------------------------------------------------
@@ -177,23 +159,22 @@ with DAG(
     start_date=days_ago(1),
     schedule_interval="*/2 * * * *",
     catchup=False,
-    default_args={"owner": "airflow", "retries": 1, "retry_delay": timedelta(seconds=10)},
+    default_args={
+        "owner": "airflow",
+        "retries": 1,
+        "retry_delay": timedelta(seconds=10),
+    },
     tags=["prediction"],
 ) as dag:
 
     t1 = PythonOperator(
         task_id="check_for_new_data",
-        python_callable=check_new,
+        python_callable=check_for_new_data,
     )
 
     t2 = PythonOperator(
         task_id="make_predictions",
-        python_callable=make_preds,
+        python_callable=make_predictions,
     )
 
-    t3 = PythonOperator(
-        task_id="cleanup_files",
-        python_callable=cleanup,
-    )
-
-    t1 >> t2 >> t3
+    t1 >> t2

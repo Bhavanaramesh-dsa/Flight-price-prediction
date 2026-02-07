@@ -81,9 +81,9 @@ def validate_data(**context):
 
     if ratio == 0:
         severity = "none"
-    elif ratio < 0.05:
+    elif ratio < 0.10:
         severity = "low"
-    elif ratio < 0.20:
+    elif ratio < 0.40:
         severity = "medium"
     else:
         severity = "high"

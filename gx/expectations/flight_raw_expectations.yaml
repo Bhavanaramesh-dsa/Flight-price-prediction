@@ -130,3 +130,4 @@ expectations:
   - expect_column_values_to_be_between:
       column: price
       min_value: 0
+      max_value: 100000

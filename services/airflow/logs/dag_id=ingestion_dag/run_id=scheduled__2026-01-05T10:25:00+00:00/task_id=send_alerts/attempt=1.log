@@ -1,0 +1,16 @@
+[2026-01-05T10:33:47.043+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ingestion_dag.send_alerts scheduled__2026-01-05T10:25:00+00:00 [queued]>
+[2026-01-05T10:33:47.070+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ingestion_dag.send_alerts scheduled__2026-01-05T10:25:00+00:00 [queued]>
+[2026-01-05T10:33:47.071+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2026-01-05T10:33:47.104+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): send_alerts> on 2026-01-05 10:25:00+00:00
+[2026-01-05T10:33:47.141+0000] {standard_task_runner.py:60} INFO - Started process 54373 to run task
+[2026-01-05T10:33:47.158+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'ingestion_dag', 'send_alerts', 'scheduled__2026-01-05T10:25:00+00:00', '--job-id', '16392', '--raw', '--subdir', 'DAGS_FOLDER/ingestion_dag.py', '--cfg-path', '/tmp/tmp3j5zy7_a']
+[2026-01-05T10:33:47.161+0000] {standard_task_runner.py:88} INFO - Job 16392: Subtask send_alerts
+[2026-01-05T10:33:47.333+0000] {task_command.py:423} INFO - Running <TaskInstance: ingestion_dag.send_alerts scheduled__2026-01-05T10:25:00+00:00 [running]> on host 8fa1ffc51a9f
+[2026-01-05T10:33:47.615+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='ingestion_dag' AIRFLOW_CTX_TASK_ID='send_alerts' AIRFLOW_CTX_EXECUTION_DATE='2026-01-05T10:25:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-05T10:25:00+00:00'
+[2026-01-05T13:34:52.186+0000] {local_task_job_runner.py:211} ERROR - Heartbeat time limit exceeded!
+[2026-01-05T13:34:52.275+0000] {process_utils.py:131} INFO - Sending 15 to group 54373. PIDs of all processes in the group: [54373]
+[2026-01-05T13:34:52.291+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 54373
+[2026-01-05T13:34:52.689+0000] {taskinstance.py:2483} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-01-05T13:34:52.943+0000] {python.py:202} INFO - Done. Returned value was: None
+[2026-01-05T13:34:54.805+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=ingestion_dag, task_id=send_alerts, execution_date=20260105T102500, start_date=20260105T103347, end_date=20260105T133454
+[2026-01-05T13:34:55.219+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=54373, status='terminated', exitcode=0, started='10:33:46') (54373) terminated with exit code 0

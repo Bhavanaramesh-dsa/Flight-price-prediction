@@ -23,15 +23,9 @@ app = FastAPI(
 # ---------------------------------------------------------
 # STATIC MOUNT: Serve GE reports
 # ---------------------------------------------------------
-# In HOST machine: ./data/reports
-# In container:    /app/reports   (docker-compose mounts this)
-#
-# Final URL:
-#     http://localhost:8000/reports/<filename>_report.html
-# ---------------------------------------------------------
 app.mount(
     "/reports",
-    StaticFiles(directory="/app/reports"),  # MUST MATCH docker-compose
+    StaticFiles(directory="/app/reports"),
     name="reports"
 )
 
@@ -69,7 +63,7 @@ def health():
 
 
 # ---------------------------------------------------------
-# Predict endpoint
+# Predict endpoint (SINGLE + BATCH)
 # ---------------------------------------------------------
 @app.post("/predict", response_model=List[PredictionOut])
 def predict(req: PredictRequest, db: Session = Depends(get_db)):
@@ -90,16 +84,32 @@ def predict(req: PredictRequest, db: Session = Depends(get_db)):
             detail=f"Prediction failed: {str(e)}"
         )
 
-    results = []
+    results: List[PredictionOut] = []
+
+    # -------------------------------------------------
+    # BUSINESS NORMALIZATION RULES
+    # -------------------------------------------------
+    MIN_PRICE = 500.0        # minimum realistic fare
+    ROUND_TO = 100           # round to nearest ₹100
 
     for rec, pred in zip(req.records, preds):
+
+        pred = float(pred)
+
+        # Enforce minimum price
+        if pred < MIN_PRICE:
+            pred = MIN_PRICE
+
+        pred = round(pred / ROUND_TO) * ROUND_TO
+
         obj = Prediction(
             source=req.source,
             features=rec,
-            prediction=float(pred),
+            prediction=pred,
         )
+
         db.add(obj)
-        db.flush()  # populate ID + created_at
+        db.flush()
 
         results.append(
             PredictionOut(
@@ -107,7 +117,7 @@ def predict(req: PredictRequest, db: Session = Depends(get_db)):
                 created_at=obj.created_at,
                 source=obj.source,
                 features=rec,
-                prediction=float(pred),
+                prediction=pred,
             )
         )
 

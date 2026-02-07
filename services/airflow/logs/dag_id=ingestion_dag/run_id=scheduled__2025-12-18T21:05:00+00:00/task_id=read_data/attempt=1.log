@@ -1,0 +1,13 @@
+[2025-12-18T21:06:02.888+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ingestion_dag.read_data scheduled__2025-12-18T21:05:00+00:00 [queued]>
+[2025-12-18T21:06:02.891+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ingestion_dag.read_data scheduled__2025-12-18T21:05:00+00:00 [queued]>
+[2025-12-18T21:06:02.892+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-12-18T21:06:02.898+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): read_data> on 2025-12-18 21:05:00+00:00
+[2025-12-18T21:06:02.904+0000] {standard_task_runner.py:60} INFO - Started process 47351 to run task
+[2025-12-18T21:06:02.907+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'ingestion_dag', 'read_data', 'scheduled__2025-12-18T21:05:00+00:00', '--job-id', '11342', '--raw', '--subdir', 'DAGS_FOLDER/ingestion_dag.py', '--cfg-path', '/tmp/tmpvf7m3rgb']
+[2025-12-18T21:06:02.907+0000] {standard_task_runner.py:88} INFO - Job 11342: Subtask read_data
+[2025-12-18T21:06:02.975+0000] {task_command.py:423} INFO - Running <TaskInstance: ingestion_dag.read_data scheduled__2025-12-18T21:05:00+00:00 [running]> on host 40dacded1950
+[2025-12-18T21:06:03.061+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='ingestion_dag' AIRFLOW_CTX_TASK_ID='read_data' AIRFLOW_CTX_EXECUTION_DATE='2025-12-18T21:05:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-12-18T21:05:00+00:00'
+[2025-12-18T21:06:03.090+0000] {python.py:202} INFO - Done. Returned value was: /opt/airflow/data/raw_data/raw_1888.csv
+[2025-12-18T21:06:03.106+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=ingestion_dag, task_id=read_data, execution_date=20251218T210500, start_date=20251218T210602, end_date=20251218T210603
+[2025-12-18T21:06:03.127+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-12-18T21:06:03.148+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check

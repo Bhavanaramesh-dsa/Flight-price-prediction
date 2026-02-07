@@ -1,0 +1,12 @@
+[2026-01-05T10:33:47.455+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ingestion_dag.save_file scheduled__2026-01-05T10:25:00+00:00 [queued]>
+[2026-01-05T10:33:47.471+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ingestion_dag.save_file scheduled__2026-01-05T10:25:00+00:00 [queued]>
+[2026-01-05T10:33:47.471+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2026-01-05T10:33:47.507+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): save_file> on 2026-01-05 10:25:00+00:00
+[2026-01-05T10:33:47.530+0000] {standard_task_runner.py:60} INFO - Started process 54376 to run task
+[2026-01-05T10:33:47.543+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'ingestion_dag', 'save_file', 'scheduled__2026-01-05T10:25:00+00:00', '--job-id', '16396', '--raw', '--subdir', 'DAGS_FOLDER/ingestion_dag.py', '--cfg-path', '/tmp/tmph7pcmoa7']
+[2026-01-05T10:33:47.545+0000] {standard_task_runner.py:88} INFO - Job 16396: Subtask save_file
+[2026-01-05T10:34:06.099+0000] {task_command.py:423} INFO - Running <TaskInstance: ingestion_dag.save_file scheduled__2026-01-05T10:25:00+00:00 [running]> on host 8fa1ffc51a9f
+[2026-01-05T13:34:52.063+0000] {local_task_job_runner.py:211} ERROR - Heartbeat time limit exceeded!
+[2026-01-05T13:34:52.096+0000] {process_utils.py:131} INFO - Sending 15 to group 54376. PIDs of all processes in the group: [54376]
+[2026-01-05T13:34:52.097+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 54376
+[2026-01-05T13:34:52.147+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=54376, status='terminated', exitcode=<Negsignal.SIGTERM: -15>, started='10:33:46') (54376) terminated with exit code -15

@@ -1,0 +1,15 @@
+[2026-01-03T13:20:02.684+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: prediction_dag.cleanup_files scheduled__2026-01-03T13:18:00+00:00 [queued]>
+[2026-01-03T13:20:02.689+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: prediction_dag.cleanup_files scheduled__2026-01-03T13:18:00+00:00 [queued]>
+[2026-01-03T13:20:02.690+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2026-01-03T13:20:02.696+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): cleanup_files> on 2026-01-03 13:18:00+00:00
+[2026-01-03T13:20:02.699+0000] {standard_task_runner.py:60} INFO - Started process 29583 to run task
+[2026-01-03T13:20:02.702+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'prediction_dag', 'cleanup_files', 'scheduled__2026-01-03T13:18:00+00:00', '--job-id', '14323', '--raw', '--subdir', 'DAGS_FOLDER/prediction_dag.py', '--cfg-path', '/tmp/tmp9gfphuzo']
+[2026-01-03T13:20:02.703+0000] {standard_task_runner.py:88} INFO - Job 14323: Subtask cleanup_files
+[2026-01-03T13:20:02.737+0000] {task_command.py:423} INFO - Running <TaskInstance: prediction_dag.cleanup_files scheduled__2026-01-03T13:18:00+00:00 [running]> on host 8fa1ffc51a9f
+[2026-01-03T13:20:02.927+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='prediction_dag' AIRFLOW_CTX_TASK_ID='cleanup_files' AIRFLOW_CTX_EXECUTION_DATE='2026-01-03T13:18:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-03T13:18:00+00:00'
+[2026-01-03T13:20:02.942+0000] {logging_mixin.py:188} INFO - [CLEANUP] Removed: /opt/airflow/data/good_data/raw_1780_good.csv
+[2026-01-03T13:20:02.943+0000] {logging_mixin.py:188} INFO - [CLEANUP] Removed: /opt/airflow/data/good_data/raw_4979_good.csv
+[2026-01-03T13:20:02.943+0000] {python.py:202} INFO - Done. Returned value was: None
+[2026-01-03T13:20:02.950+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=prediction_dag, task_id=cleanup_files, execution_date=20260103T131800, start_date=20260103T132002, end_date=20260103T132002
+[2026-01-03T13:20:02.963+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-01-03T13:20:02.975+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

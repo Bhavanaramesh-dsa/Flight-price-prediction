@@ -1,0 +1,13 @@
+[2025-12-18T14:42:12.391+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ingestion_dag.send_alerts scheduled__2025-12-18T14:41:00+00:00 [queued]>
+[2025-12-18T14:42:12.397+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ingestion_dag.send_alerts scheduled__2025-12-18T14:41:00+00:00 [queued]>
+[2025-12-18T14:42:12.397+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
+[2025-12-18T14:42:12.410+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): send_alerts> on 2025-12-18 14:41:00+00:00
+[2025-12-18T14:42:12.426+0000] {standard_task_runner.py:60} INFO - Started process 19824 to run task
+[2025-12-18T14:42:12.435+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'ingestion_dag', 'send_alerts', 'scheduled__2025-12-18T14:41:00+00:00', '--job-id', '9235', '--raw', '--subdir', 'DAGS_FOLDER/ingestion_dag.py', '--cfg-path', '/tmp/tmpyxhl7qmh']
+[2025-12-18T14:42:12.437+0000] {standard_task_runner.py:88} INFO - Job 9235: Subtask send_alerts
+[2025-12-18T14:42:12.511+0000] {task_command.py:423} INFO - Running <TaskInstance: ingestion_dag.send_alerts scheduled__2025-12-18T14:41:00+00:00 [running]> on host 40dacded1950
+[2025-12-18T14:42:12.646+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='ingestion_dag' AIRFLOW_CTX_TASK_ID='send_alerts' AIRFLOW_CTX_EXECUTION_DATE='2025-12-18T14:41:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-12-18T14:41:00+00:00'
+[2025-12-18T14:42:13.992+0000] {python.py:202} INFO - Done. Returned value was: None
+[2025-12-18T14:42:14.031+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=ingestion_dag, task_id=send_alerts, execution_date=20251218T144100, start_date=20251218T144212, end_date=20251218T144214
+[2025-12-18T14:42:14.100+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2025-12-18T14:42:14.147+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check

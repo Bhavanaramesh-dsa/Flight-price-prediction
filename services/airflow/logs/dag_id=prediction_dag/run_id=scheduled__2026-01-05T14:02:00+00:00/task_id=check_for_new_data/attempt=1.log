@@ -1,0 +1,14 @@
+[2026-01-05T14:04:01.191+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: prediction_dag.check_for_new_data scheduled__2026-01-05T14:02:00+00:00 [queued]>
+[2026-01-05T14:04:01.218+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: prediction_dag.check_for_new_data scheduled__2026-01-05T14:02:00+00:00 [queued]>
+[2026-01-05T14:04:01.229+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2026-01-05T14:04:01.287+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): check_for_new_data> on 2026-01-05 14:02:00+00:00
+[2026-01-05T14:04:01.367+0000] {standard_task_runner.py:60} INFO - Started process 57387 to run task
+[2026-01-05T14:04:01.391+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'prediction_dag', 'check_for_new_data', 'scheduled__2026-01-05T14:02:00+00:00', '--job-id', '16621', '--raw', '--subdir', 'DAGS_FOLDER/prediction_dag.py', '--cfg-path', '/tmp/tmpeh7d4man']
+[2026-01-05T14:04:01.405+0000] {standard_task_runner.py:88} INFO - Job 16621: Subtask check_for_new_data
+[2026-01-05T14:04:01.803+0000] {task_command.py:423} INFO - Running <TaskInstance: prediction_dag.check_for_new_data scheduled__2026-01-05T14:02:00+00:00 [running]> on host 8fa1ffc51a9f
+[2026-01-05T14:04:02.866+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='prediction_dag' AIRFLOW_CTX_TASK_ID='check_for_new_data' AIRFLOW_CTX_EXECUTION_DATE='2026-01-05T14:02:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-05T14:02:00+00:00'
+[2026-01-05T14:04:02.912+0000] {logging_mixin.py:188} INFO - [INFO] New files: ['/opt/airflow/data/good_data/raw_1329_good.csv', '/opt/airflow/data/good_data/raw_2667_good.csv']
+[2026-01-05T14:04:03.110+0000] {python.py:202} INFO - Done. Returned value was: None
+[2026-01-05T14:04:03.173+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=prediction_dag, task_id=check_for_new_data, execution_date=20260105T140200, start_date=20260105T140401, end_date=20260105T140403
+[2026-01-05T14:04:03.242+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-01-05T14:04:03.305+0000] {taskinstance.py:3312} INFO - 1 downstream tasks scheduled from follow-on schedule check

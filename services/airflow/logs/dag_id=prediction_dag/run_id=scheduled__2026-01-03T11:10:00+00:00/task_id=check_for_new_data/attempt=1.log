@@ -1,0 +1,50 @@
+[2026-01-03T11:53:19.395+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: prediction_dag.check_for_new_data scheduled__2026-01-03T11:10:00+00:00 [queued]>
+[2026-01-03T11:53:19.454+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: prediction_dag.check_for_new_data scheduled__2026-01-03T11:10:00+00:00 [queued]>
+[2026-01-03T11:53:19.457+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2026-01-03T11:53:19.997+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): check_for_new_data> on 2026-01-03 11:10:00+00:00
+[2026-01-03T11:53:20.131+0000] {standard_task_runner.py:60} INFO - Started process 24642 to run task
+[2026-01-03T11:53:20.208+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'prediction_dag', 'check_for_new_data', 'scheduled__2026-01-03T11:10:00+00:00', '--job-id', '13937', '--raw', '--subdir', 'DAGS_FOLDER/prediction_dag.py', '--cfg-path', '/tmp/tmpp_pjhsf4']
+[2026-01-03T11:53:20.247+0000] {standard_task_runner.py:88} INFO - Job 13937: Subtask check_for_new_data
+[2026-01-03T11:53:22.795+0000] {task_command.py:423} INFO - Running <TaskInstance: prediction_dag.check_for_new_data scheduled__2026-01-03T11:10:00+00:00 [running]> on host 8fa1ffc51a9f
+[2026-01-03T12:25:21.843+0000] {local_task_job_runner.py:211} ERROR - Heartbeat time limit exceeded!
+[2026-01-03T12:25:22.255+0000] {process_utils.py:131} INFO - Sending 15 to group 24642. PIDs of all processes in the group: [24642]
+[2026-01-03T12:25:22.291+0000] {process_utils.py:86} INFO - Sending the signal 15 to group 24642
+[2026-01-03T12:25:51.791+0000] {taskinstance.py:2483} ERROR - Received SIGTERM. Terminating subprocesses.
+[2026-01-03T12:25:52.401+0000] {taskinstance.py:2731} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 2360, in _run_raw_task
+    self._execute_task_with_callbacks(context, test_mode, session=session)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 2498, in _execute_task_with_callbacks
+    task_orig = self.render_templates(context=context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 2910, in render_templates
+    original_task.render_template_fields(context)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/baseoperator.py", line 1240, in render_template_fields
+    jinja_env = self.get_template_env()
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/abstractoperator.py", line 660, in get_template_env
+    return super().get_template_env(dag=dag)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/template/templater.py", line 74, in get_template_env
+    return dag.get_template_env(force_sandboxed=False)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/dag.py", line 1668, in get_template_env
+    env = airflow.templates.SandboxedEnvironment(**jinja_env_options)
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/templates.py", line 31, in __init__
+    super().__init__(**kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/jinja2/sandbox.py", line 253, in __init__
+    super().__init__(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.10/site-packages/jinja2/environment.py", line 363, in __init__
+    self.extensions = load_extensions(self, extensions)
+  File "/home/airflow/.local/lib/python3.10/site-packages/jinja2/environment.py", line 117, in load_extensions
+    extension = t.cast(t.Type["Extension"], import_string(extension))
+  File "/home/airflow/.local/lib/python3.10/site-packages/jinja2/utils.py", line 149, in import_string
+    return getattr(__import__(module, None, None, [obj]), obj)
+  File "<frozen importlib._bootstrap>", line 1027, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1006, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 688, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 879, in exec_module
+  File "<frozen importlib._bootstrap_external>", line 1012, in get_code
+  File "<frozen importlib._bootstrap_external>", line 672, in _compile_bytecode
+  File "/home/airflow/.local/lib/python3.10/site-packages/airflow/models/taskinstance.py", line 2485, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2026-01-03T12:25:52.680+0000] {taskinstance.py:1149} INFO - Marking task as UP_FOR_RETRY. dag_id=prediction_dag, task_id=check_for_new_data, execution_date=20260103T111000, start_date=20260103T115319, end_date=20260103T122552
+[2026-01-03T12:25:52.924+0000] {standard_task_runner.py:107} ERROR - Failed to execute job 13937 for task check_for_new_data (Task received SIGTERM signal; 24642)
+[2026-01-03T12:25:53.065+0000] {process_utils.py:79} INFO - Process psutil.Process(pid=24642, status='terminated', exitcode=1, started='11:53:19') (24642) terminated with exit code 1

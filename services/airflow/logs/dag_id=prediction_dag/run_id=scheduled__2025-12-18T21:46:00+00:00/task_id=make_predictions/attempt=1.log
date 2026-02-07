@@ -1,0 +1,8 @@
+[2025-12-18T21:48:26.062+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: prediction_dag.make_predictions scheduled__2025-12-18T21:46:00+00:00 [queued]>
+[2025-12-18T21:48:26.226+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: prediction_dag.make_predictions scheduled__2025-12-18T21:46:00+00:00 [queued]>
+[2025-12-18T21:48:26.230+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 2
+[2025-12-18T21:48:26.359+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): make_predictions> on 2025-12-18 21:46:00+00:00
+[2025-12-18T21:48:26.544+0000] {standard_task_runner.py:60} INFO - Started process 51421 to run task
+[2025-12-18T21:48:26.581+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'prediction_dag', 'make_predictions', 'scheduled__2025-12-18T21:46:00+00:00', '--job-id', '11653', '--raw', '--subdir', 'DAGS_FOLDER/prediction_dag.py', '--cfg-path', '/tmp/tmpkka0l_1q']
+[2025-12-18T21:48:26.636+0000] {standard_task_runner.py:88} INFO - Job 11653: Subtask make_predictions
+[2025-12-18T21:48:27.631+0000] {task_command.py:423} INFO - Running <TaskInstance: prediction_dag.make_predictions scheduled__2025-12-18T21:46:00+00:00 [running]> on host 40dacded1950

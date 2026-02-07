@@ -137,17 +137,20 @@ Used by both Streamlit UI and Airflow prediction DAG
 User selects flight attributes
 Instant price prediction
 Prediction stored in PostgreSQL
+
 ![Streamlit Single](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Streamlit-SinglePrediction.png)
 
 ###🔹 Batch Prediction
 Upload CSV (without price column)
 Batch predictions generated
 Stored and monitored automatically
+
 ![Streamlit Batch](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Streamlit-BatchPrediction.png)
 
 ###🔹 Past Predictions
 Filter predictions by date & source
 Compare scheduled vs manual predictions
+
 ![Streamlit Past](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Streamlit-PastPrediction.png)
 
 ---
@@ -155,6 +158,7 @@ Compare scheduled vs manual predictions
 ##⏱️ Airflow Workflows
 
 #Ingestion DAG
+
 ![Airflow Ingestion](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Airflow-Ingestion.png)
 
 Tasks:
@@ -166,6 +170,7 @@ Trigger alerts on failure
 
 
 #Prediction DAG
+
 ![Airflow Prediction](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Airflow-Prediction.png)
 
 Tasks:
@@ -185,6 +190,7 @@ Severity-based alerts triggered
 
 ##📊 Grafana Monitoring
 ### Ingestion Monitoring Dashboard
+
 ![Grafana Ingestion](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Grafana-IngestionDashboard.png)
 
 **Monitors:**
@@ -193,6 +199,7 @@ Severity-based alerts triggered
 - Severity over time  
 
 ### Prediction & Drift Monitoring
+
 ![Grafana Prediction](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Grafana-PredictionDashboard.png)
 
 **Monitors:**
@@ -206,6 +213,7 @@ Severity-based alerts triggered
 ![GE Alerts](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Teams-GE-dataAlerts.png)
 
 ### Grafana Alerts
+
 ![Grafana Alerts](https://raw.githubusercontent.com/Bhavanaramesh-dsa/Flight-price-prediction/main/images/Teams-GrafanaAlerts.png)
 
 ##🎯 What This Project Demonstrates

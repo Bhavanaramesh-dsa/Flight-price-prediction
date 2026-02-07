@@ -3,7 +3,17 @@ data/raw_data/
 data/good_data/
 data/bad_data/
 data/predictions/
+data/reports/
+
+# PostgreSQL runtime data
+postgres_data/
+
+# Airflow logs
+services/airflow/logs/
 
 # Python
 __pycache__/
 *.pyc
+
+# OS
+.DS_Store

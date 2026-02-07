@@ -1,29 +1,0 @@
-[2026-01-09T23:49:47.091+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ingestion_dag.ge_validate scheduled__2026-01-09T23:48:00+00:00 [queued]>
-[2026-01-09T23:49:47.098+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ingestion_dag.ge_validate scheduled__2026-01-09T23:48:00+00:00 [queued]>
-[2026-01-09T23:49:47.098+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
-[2026-01-09T23:49:47.109+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): ge_validate> on 2026-01-09 23:48:00+00:00
-[2026-01-09T23:49:47.136+0000] {standard_task_runner.py:60} INFO - Started process 8147 to run task
-[2026-01-09T23:49:47.158+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'ingestion_dag', 'ge_validate', 'scheduled__2026-01-09T23:48:00+00:00', '--job-id', '36752', '--raw', '--subdir', 'DAGS_FOLDER/ingestion_dag.py', '--cfg-path', '/tmp/tmpnk7d15wy']
-[2026-01-09T23:49:47.161+0000] {standard_task_runner.py:88} INFO - Job 36752: Subtask ge_validate
-[2026-01-09T23:49:47.251+0000] {task_command.py:423} INFO - Running <TaskInstance: ingestion_dag.ge_validate scheduled__2026-01-09T23:48:00+00:00 [running]> on host 834f8eab230e
-[2026-01-09T23:49:47.399+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='ingestion_dag' AIRFLOW_CTX_TASK_ID='ge_validate' AIRFLOW_CTX_EXECUTION_DATE='2026-01-09T23:48:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-01-09T23:48:00+00:00'
-[2026-01-09T23:49:47.490+0000] {file_data_context.py:224} INFO - FileDataContext loading fluent config
-[2026-01-09T23:49:47.504+0000] {config.py:185} INFO - Loading 'datasources' ->
-[]
-[2026-01-09T23:49:47.632+0000] {validator.py:1496} INFO - 	11 expectation(s) included in expectation_suite.
-[2026-01-09T23:49:47.701+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/33 [00:00<?, ?it/s]
-[2026-01-09T23:49:47.701+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/33 [00:00<?, ?it/s]
-[2026-01-09T23:49:47.702+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   6%|6         | 2/33 [00:00<00:00, 1999.19it/s]
-[2026-01-09T23:49:47.711+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   6%|6         | 2/33 [00:00<00:00, 211.18it/s] 
-[2026-01-09T23:49:47.711+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   9%|9         | 3/33 [00:00<00:00, 306.42it/s]
-[2026-01-09T23:49:47.718+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   9%|9         | 3/33 [00:00<00:00, 172.10it/s]
-[2026-01-09T23:49:47.721+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  39%|###9      | 13/33 [00:00<00:00, 647.80it/s]
-[2026-01-09T23:49:47.727+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  39%|###9      | 13/33 [00:00<00:00, 495.04it/s]
-[2026-01-09T23:49:47.733+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 33/33 [00:00<00:00, 1025.75it/s]
-[2026-01-09T23:49:47.736+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 33/33 [00:00<00:00, 941.76it/s] 
-[2026-01-09T23:49:47.736+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 33/33 [00:00<00:00, 937.50it/s]
-[2026-01-09T23:49:47.736+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 33/33 [00:00<00:00, 932.97it/s]
-[2026-01-09T23:49:47.818+0000] {python.py:202} INFO - Done. Returned value was: None
-[2026-01-09T23:49:47.827+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=ingestion_dag, task_id=ge_validate, execution_date=20260109T234800, start_date=20260109T234947, end_date=20260109T234947
-[2026-01-09T23:49:47.875+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
-[2026-01-09T23:49:47.906+0000] {taskinstance.py:3312} INFO - 3 downstream tasks scheduled from follow-on schedule check

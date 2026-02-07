@@ -1,29 +1,0 @@
-[2026-01-10T09:29:15.165+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: ingestion_dag.ge_validate manual__2026-01-10T09:29:05.066618+00:00 [queued]>
-[2026-01-10T09:29:15.172+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: ingestion_dag.ge_validate manual__2026-01-10T09:29:05.066618+00:00 [queued]>
-[2026-01-10T09:29:15.172+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 1
-[2026-01-10T09:29:15.189+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): ge_validate> on 2026-01-10 09:29:05.066618+00:00
-[2026-01-10T09:29:15.216+0000] {standard_task_runner.py:60} INFO - Started process 1067 to run task
-[2026-01-10T09:29:15.227+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'ingestion_dag', 'ge_validate', 'manual__2026-01-10T09:29:05.066618+00:00', '--job-id', '36923', '--raw', '--subdir', 'DAGS_FOLDER/ingestion_dag.py', '--cfg-path', '/tmp/tmpq466nwqe']
-[2026-01-10T09:29:15.229+0000] {standard_task_runner.py:88} INFO - Job 36923: Subtask ge_validate
-[2026-01-10T09:29:15.348+0000] {task_command.py:423} INFO - Running <TaskInstance: ingestion_dag.ge_validate manual__2026-01-10T09:29:05.066618+00:00 [running]> on host 58fce458aed0
-[2026-01-10T09:29:15.554+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='ingestion_dag' AIRFLOW_CTX_TASK_ID='ge_validate' AIRFLOW_CTX_EXECUTION_DATE='2026-01-10T09:29:05.066618+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-01-10T09:29:05.066618+00:00'
-[2026-01-10T09:29:15.668+0000] {file_data_context.py:224} INFO - FileDataContext loading fluent config
-[2026-01-10T09:29:15.684+0000] {config.py:185} INFO - Loading 'datasources' ->
-[]
-[2026-01-10T09:29:15.856+0000] {validator.py:1496} INFO - 	11 expectation(s) included in expectation_suite.
-[2026-01-10T09:29:15.930+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/33 [00:00<?, ?it/s]
-[2026-01-10T09:29:15.930+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   0%|          | 0/33 [00:00<?, ?it/s]
-[2026-01-10T09:29:15.937+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   6%|6         | 2/33 [00:00<00:00, 305.25it/s]
-[2026-01-10T09:29:15.956+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   6%|6         | 2/33 [00:00<00:00, 79.89it/s] 
-[2026-01-10T09:29:15.956+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   9%|9         | 3/33 [00:00<00:00, 115.78it/s]
-[2026-01-10T09:29:15.964+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:   9%|9         | 3/33 [00:00<00:00, 88.83it/s] 
-[2026-01-10T09:29:15.967+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  39%|###9      | 13/33 [00:00<00:00, 351.21it/s]
-[2026-01-10T09:29:15.973+0000] {logging_mixin.py:188} WARNING - Calculating Metrics:  39%|###9      | 13/33 [00:00<00:00, 302.11it/s]
-[2026-01-10T09:29:15.979+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 33/33 [00:00<00:00, 673.94it/s]
-[2026-01-10T09:29:15.984+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 33/33 [00:00<00:00, 612.51it/s]
-[2026-01-10T09:29:15.985+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 33/33 [00:00<00:00, 608.47it/s]
-[2026-01-10T09:29:15.985+0000] {logging_mixin.py:188} WARNING - Calculating Metrics: 100%|##########| 33/33 [00:00<00:00, 605.61it/s]
-[2026-01-10T09:29:16.120+0000] {python.py:202} INFO - Done. Returned value was: None
-[2026-01-10T09:29:16.135+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=ingestion_dag, task_id=ge_validate, execution_date=20260110T092905, start_date=20260110T092915, end_date=20260110T092916
-[2026-01-10T09:29:16.197+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
-[2026-01-10T09:29:16.232+0000] {taskinstance.py:3312} INFO - 3 downstream tasks scheduled from follow-on schedule check
